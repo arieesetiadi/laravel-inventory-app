@@ -5,11 +5,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Title -->
     <title>Login - UD Srimurti Inventory System</title>
 
-    <!-- Styles -->
+    {{-- STYLES --}}
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800&display=swap"
@@ -32,7 +30,7 @@
         <div class="app-auth-background"></div>
 
         {{-- FORM LOGIN --}}
-        <form action="{{ route('prosesLogin') }}" method="POST" class="app-auth-container">
+        <form id="login-form" action="{{ route('prosesLogin') }}" method="POST" class="app-auth-container">
             @csrf
 
             <div class="logo">
@@ -45,14 +43,19 @@
 
             <div class="auth-credentials m-b-xxl">
                 {{-- INPUT USERNAME --}}
-                <label for="username" class="form-label">Username</label>
-                <input name="username" type="text" class="form-control m-b-md" id="username"
-                    aria-describedby="username" placeholder="Username">
+                <div class="m-b-md">
+                    <label for="username" class="form-label">Username</label>
+                    <input name="username" type="text" class="form-control" id="username"
+                        aria-describedby="username" placeholder="Username" required>
+                </div>
 
                 {{-- INPUT PASSWORD --}}
-                <label for="password" class="form-label">Password</label>
-                <input name="password" type="password" class="form-control" id="password" aria-describedby="password"
-                    placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;">
+                <div class="">
+                    <label for="password" class="form-label">Password</label>
+                    <input name="password" type="password" class="form-control" id="password"
+                        aria-describedby="password"
+                        placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" required>
+                </div>
             </div>
 
             <div class="auth-submit">
@@ -61,13 +64,31 @@
         </form>
     </div>
 
-    <!-- Javascripts -->
+    {{-- SCRIPTS --}}
     <script src="{{ asset('assets/plugins/jquery/jquery-3.5.1.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/perfectscroll/perfect-scrollbar.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/pace/pace.min.js') }}"></script>
     <script src="{{ asset('assets/js/main.min.js') }}"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js"
+        integrity="sha512-WMEKGZ7L5LWgaPeJtw9MBM4i5w5OSBlSjTjCtSnvFJGSVD26gE5+Td12qN5pvWXhuWaWcVwF++F7aqu9cvqP0A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/additional-methods.min.js"
+        integrity="sha512-TiQST7x/0aMjgVTcep29gi+q5Lk5gVTUPE9XgN0g96rwtjEjLpod4mlBRKWHeBcvGBAEvJBmfDqh2hfMMmg+5A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/localization/messages_id.min.js"
+        integrity="sha512-OPPBKm9G1nQhKpHk3aKt0VcpZOjQbFASwF5zDZgtLzCLr3xzFqTz6BMyNcg6nSqz2v85lkmsUU4ncueJLS5iYg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <script src="{{ asset('assets/js/custom.js') }}"></script>
+
+    {{-- FORM VALIDATION --}}
+    <script>
+        $(function() {
+            $('form#login-form').validate();
+        })
+    </script>
 </body>
 
 </html>
