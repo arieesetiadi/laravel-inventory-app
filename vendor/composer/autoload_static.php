@@ -37,6 +37,7 @@ class ComposerStaticInit8057f086cb55f59b6590c7bae42aaa5e
         'c72349b1fe8d0deeedd3a52e8aa814d8' => __DIR__ . '/..' . '/mockery/mockery/library/helpers.php',
         'ce9671a430e4846b44e1c68c7611f9f5' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery.php',
         'ec07570ca5a812141189b1fa81503674' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert/Functions.php',
+        'daf1bf3d4d1988ba43273b850bc404c3' => __DIR__ . '/../..' . '/app/Helpers/MainHelper.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -321,8 +322,8 @@ class ComposerStaticInit8057f086cb55f59b6590c7bae42aaa5e
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -493,6 +494,10 @@ class ComposerStaticInit8057f086cb55f59b6590c7bae42aaa5e
 
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
+        'App\\Constants\\GeneralStatus' => __DIR__ . '/../..' . '/app/Constants/GeneralStatus.php',
+        'App\\Constants\\SwalButton' => __DIR__ . '/../..' . '/app/Constants/SwalButton.php',
+        'App\\Constants\\SwalIcon' => __DIR__ . '/../..' . '/app/Constants/SwalIcon.php',
+        'App\\Constants\\UserRole' => __DIR__ . '/../..' . '/app/Constants/UserRole.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
@@ -510,6 +515,7 @@ class ComposerStaticInit8057f086cb55f59b6590c7bae42aaa5e
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+        'App\\Traits\\HasWebResponses' => __DIR__ . '/../..' . '/app/Traits/HasWebResponses.php',
         'Asm89\\Stack\\Cors' => __DIR__ . '/..' . '/asm89/stack-cors/src/Cors.php',
         'Asm89\\Stack\\CorsService' => __DIR__ . '/..' . '/asm89/stack-cors/src/CorsService.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
