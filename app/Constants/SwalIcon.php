@@ -47,8 +47,8 @@ class SwalIcon
     public static function labels()
     {
         return [
-            self::SUCCESS => 'Success',
-            self::ERROR => 'Failed',
+            self::SUCCESS => 'Berhasil',
+            self::ERROR => 'Gagal',
             self::WARNING => 'Warning',
             self::INFO => 'Info',
             self::QUESTION => 'Confirmation',

@@ -71,8 +71,14 @@
                         </a>
                     </li>
 
+                    <li class="sidebar-title">
+                        Lainnya
+                    </li>
+
                     <li>
-                        <a href="#"><i class="material-icons-two-tone">access_time</i>Change Log</a>
+                        <a data-type="link" onclick="swalConfirm(event)" href="{{ route('logout') }}">
+                            <i class="material-icons-two-tone">power_settings_new</i>Logout
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -144,8 +150,8 @@
             const type = clickable.data('type') ?? 'button';
 
             Swal.fire({
-                title: 'Are you sure?',
-                text: 'Press OK to continue!',
+                title: 'Apakah Anda Yakin?',
+                text: 'Tekan OK untuk melanjutkan!',
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonText: 'OK'

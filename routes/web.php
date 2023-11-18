@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogoutController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('guest')->group(function () {
+    // Route Login
     Route::get('/login', [LoginController::class, 'login'])->name('login');
     Route::post('/login', [LoginController::class, 'prosesLogin'])->name('prosesLogin');
 });
@@ -23,4 +25,7 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     // Route Dashboard
     Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
+
+    // Route Logout
+    Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 });

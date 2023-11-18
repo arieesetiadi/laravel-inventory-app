@@ -123,8 +123,8 @@
             const type = clickable.data('type') ?? 'button';
 
             Swal.fire({
-                title: 'Are you sure?',
-                text: 'Press OK to continue!',
+                title: 'Apakah Anda Yakin?',
+                text: 'Tekan OK untuk melanjutkan!',
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonText: 'OK'
