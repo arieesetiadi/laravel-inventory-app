@@ -9,26 +9,26 @@ class UserRole
      *
      * @var int
      */
-    public const OWNER = 1;
+    public const OWNER = 'Owner';
 
     /**
      * Owner role value.
      *
      * @var int
      */
-    public const ADMIN = 2;
+    public const ADMIN = 'Admin';
 
     /**
      * Owner role value.
      *
      * @var int
      */
-    public const SALES = 3;
+    public const SALES = 'Sales';
 
     /**
      * Owner role value.
      *
      * @var int
      */
-    public const PETUGAS_GUDANG = 3;
+    public const PETUGAS_GUDANG = 'Petugas Gudang';
 }
