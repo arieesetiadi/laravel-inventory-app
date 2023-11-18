@@ -15,6 +15,10 @@
     <link
         href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.10.0/sweetalert2.min.css"
+        integrity="sha512-l1vPIxNzx1pUOKdZEe4kEnWCBzFVVYX5QziGS7zRZE4Gi5ykXrfvUgnSBttDbs0kXe2L06m9+51eadS+Bg6a+A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <link href="{{ asset('assets/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/plugins/perfectscroll/perfect-scrollbar.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/plugins/pace/pace.css') }}" rel="stylesheet">
@@ -80,6 +84,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/localization/messages_id.min.js"
         integrity="sha512-OPPBKm9G1nQhKpHk3aKt0VcpZOjQbFASwF5zDZgtLzCLr3xzFqTz6BMyNcg6nSqz2v85lkmsUU4ncueJLS5iYg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.10.0/sweetalert2.min.js"
+        integrity="sha512-rO18JLH5mM83ToEn/5KhZ8BpHJ4uUKrGLybcp6wK0yuRfqQCSGVbEq1yIn/9coUjRU88TA6UJDLPK9sO6DN0Iw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script src="{{ asset('assets/js/custom.js') }}"></script>
 
@@ -88,6 +95,50 @@
         $(function() {
             $('form#login-form').validate();
         })
+    </script>
+
+    {{-- SWAL --}}
+    @if ($swal = session('swal'))
+        <script>
+            const title = "{{ $swal['title'] }}";
+            const text = "{{ $swal['text'] }}";
+            const icon = "{{ $swal['icon'] }}";
+            const buttonText = "{{ $swal['button'] }}";
+
+            Swal.fire({
+                title: title,
+                text: text,
+                icon: icon,
+                confirmButtonText: buttonText,
+            })
+        </script>
+    @endif
+
+    {{-- SWAL --}}
+    <script>
+        function swalConfirm(event) {
+            event.preventDefault();
+
+            const clickable = $(event.target);
+            const type = clickable.data('type') ?? 'button';
+
+            Swal.fire({
+                title: 'Are you sure?',
+                text: 'Press OK to continue!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'OK'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    if (type == 'link') {
+                        const href = $(clickable).attr('href');
+                        window.location.href = href;
+                    } else {
+                        clickable.parent().submit();
+                    }
+                }
+            });
+        }
     </script>
 </body>
 

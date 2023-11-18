@@ -31,4 +31,17 @@ class UserRole
      * @var int
      */
     public const PETUGAS_GUDANG = 'Petugas Gudang';
+
+    /**
+     * All Roles value
+     */
+    public static function values()
+    {
+        return [
+            self::OWNER,
+            self::ADMIN,
+            self::SALES,
+            self::PETUGAS_GUDANG,
+        ];
+    }
 }
