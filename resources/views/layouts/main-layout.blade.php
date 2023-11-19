@@ -63,12 +63,12 @@
                         </a>
                     </li>
 
-                    <li class="sidebar-title">
-                        Menu Pengelolaan
-                    </li>
-
                     {{-- Khusus Admin --}}
                     @if (is_admin())
+                        <li class="sidebar-title">
+                            Menu Pengelolaan
+                        </li>
+
                         <li class="{{ is_url('pemasok') || is_url('pemasok/*') ? 'active-page' : '' }}">
                             <a href="{{ route('halamanUtamaPemasok') }}">
                                 <i class="material-icons-two-tone">person</i>Data Pemasok
