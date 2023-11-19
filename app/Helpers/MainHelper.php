@@ -1,8 +1,10 @@
 <?php
 
+use App\Constants\UserRole;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Date format.
@@ -20,22 +22,42 @@ const TIME_FORMAT = 'h:i A';
 const DATE_TIME_FORMAT = DATE_FORMAT . ' ' . TIME_FORMAT;
 
 /**
- * Get authenticated user (web).
+ * Check if the logged in user is the owner.
  */
-if (!function_exists('customer')) {
-    function customer(): User
+if (!function_exists('is_owner')) {
+    function is_owner(): bool
     {
-        return auth('web')->user();
+        return Auth::user()->role == UserRole::OWNER;
     }
 }
 
 /**
- * Get authenticated user (cms).
+ * Check if the logged in user is the admin.
  */
-if (!function_exists('admin')) {
-    function admin(): User
+if (!function_exists('is_admin')) {
+    function is_admin(): bool
     {
-        return auth('cms')->user();
+        return Auth::user()->role == UserRole::ADMIN;
+    }
+}
+
+/**
+ * Check if the logged in user is the sales.
+ */
+if (!function_exists('is_sales')) {
+    function is_sales(): bool
+    {
+        return Auth::user()->role == UserRole::SALES;
+    }
+}
+
+/**
+ * Check if the logged in user is the petugas gudang.
+ */
+if (!function_exists('is_petugas_gudang')) {
+    function is_petugas_gudang(): bool
+    {
+        return Auth::user()->role == UserRole::PETUGAS_GUDANG;
     }
 }
 
