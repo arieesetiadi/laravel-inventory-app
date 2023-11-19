@@ -2,7 +2,9 @@ $(document).ready(function () {
 
     "use strict";
 
-    $('#datatable1, .datatable').DataTable();
+    $('#datatable1, .datatable').DataTable({
+        searching: false,
+    });
 
     $('#datatable2').DataTable({
         "scrollY": "300px",
