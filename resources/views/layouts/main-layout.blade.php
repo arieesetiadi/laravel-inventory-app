@@ -64,17 +64,19 @@
                         </a>
                     </li>
 
-                    {{-- <li class="sidebar-title">
+                    <li class="sidebar-title">
                         Menu Pengelolaan
                     </li>
+                    
+                    @if (is_admin()) {{-- Khusus Admin --}}
+                        <li>
+                            <a href="{{ route('dashboard') }}">
+                                <i class="material-icons-two-tone">person</i>Data Pemasok
+                            </a>
+                        </li>
+                    @endif
 
-                    <li>
-                        <a href="{{ route('dashboard') }}">
-                            <i class="material-icons-two-tone">person</i>Data Pemasok
-                        </a>
-                    </li>
-
-                    <li>
+                    {{-- <li>
                         <a href="{{ route('dashboard') }}">
                             <i class="material-icons-two-tone">inventory_2</i>Data Barang
                         </a>
