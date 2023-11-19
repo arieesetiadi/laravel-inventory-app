@@ -35,7 +35,7 @@ class UserSeeder extends Seeder
 
         foreach ($roles as $role) {
             User::create([
-                'username' => Str::slug($role),
+                'username' => $role == UserRole::PETUGAS_GUDANG ? 'petugasgudang' : Str::slug($role),
                 'password' => $passwords[$role],
                 'nama_user' => $names[$role],
                 'role' => $role,

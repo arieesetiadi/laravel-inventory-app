@@ -16,7 +16,6 @@
             <div class="col">
                 <div class="card">
                     <div class="card-body">
-                        {{-- FORM LOGIN --}}
                         <form id="tambah-pemasok-form" action="{{ route('prosesTambahPemasok') }}" method="POST">
                             @csrf
 

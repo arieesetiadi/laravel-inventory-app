@@ -80,31 +80,25 @@
                                 <i class="material-icons-two-tone">inventory_2</i>Data Barang
                             </a>
                         </li>
+
+                        <li class="{{ is_url('barang-masuk') || is_url('barang-masuk/*') ? 'active-page' : '' }}">
+                            <a href="{{ route('halamanUtamaBarangMasuk') }}">
+                                <i class="material-icons-two-tone">archive</i>Data Barang Masuk
+                            </a>
+                        </li>
+                        
+                        {{-- <li>
+                            <a href="{{ route('dashboard') }}">
+                                <i class="material-icons-two-tone">unarchive</i>Data Barang Keluar
+                            </a>
+                        </li> --}}
+    
+                        {{-- <li>
+                            <a href="{{ route('dashboard') }}">
+                                <i class="material-icons-two-tone">description</i>Laporan
+                            </a>
+                        </li> --}}
                     @endif
-
-                    {{-- <li>
-                        <a href="{{ route('dashboard') }}">
-                            <i class="material-icons-two-tone">inventory_2</i>Data Barang
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="{{ route('dashboard') }}">
-                            <i class="material-icons-two-tone">archive</i>Data Barang Masuk
-                        </a>
-                    </li>
-                    
-                    <li>
-                        <a href="{{ route('dashboard') }}">
-                            <i class="material-icons-two-tone">unarchive</i>Data Barang Keluar
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="{{ route('dashboard') }}">
-                            <i class="material-icons-two-tone">description</i>Laporan
-                        </a>
-                    </li> --}}
 
                     {{-- <li>
                         <a href="mailbox.html">

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BarangController;
+use App\Http\Controllers\BarangMasukController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
@@ -46,6 +47,16 @@ Route::middleware('auth')->group(function () {
         Route::get('/ubah/{id}', 'halamanUbahBarang')->name('halamanUbahBarang');
         Route::put('/ubah/{id}', 'prosesUbahBarang')->name('prosesUbahBarang');
         Route::get('/hapus/{id}', 'prosesHapusBarang')->name('prosesHapusBarang');
+    });
+
+    // Route Barang Masuk
+    Route::prefix('/barang-masuk')->controller(BarangMasukController::class)->group(function () {
+        Route::get('/', 'halamanUtamaBarangMasuk')->name('halamanUtamaBarangMasuk');
+        Route::get('/tambah', 'halamanTambahBarangMasuk')->name('halamanTambahBarangMasuk');
+        Route::post('/tambah', 'prosesTambahBarangMasuk')->name('prosesTambahBarangMasuk');
+        Route::get('/ubah/{id}', 'halamanUbahBarangMasuk')->name('halamanUbahBarangMasuk');
+        Route::put('/ubah/{id}', 'prosesUbahBarangMasuk')->name('prosesUbahBarangMasuk');
+        Route::get('/hapus/{id}', 'prosesHapusBarangMasuk')->name('prosesHapusBarangMasuk');
     });
 
     // Route Logout
