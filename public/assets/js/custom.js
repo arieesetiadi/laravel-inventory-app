@@ -3,7 +3,8 @@ if ($.validator) {
     $.validator.setDefaults({
         errorPlacement: function (label, element) {
             label.addClass('text-danger mt-1');
-            label.insertAfter(element);
+            // label.insertAfter(element);
+            element.parent().append(label);
         }
     });
 

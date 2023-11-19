@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Barang;
+use App\Models\Pemasok;
 use App\Traits\HasWebResponses;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,7 @@ class BarangController extends Controller
     public function halamanUtamaBarang()
     {
         // Ambil seluruh data barang dari database
-        $barang = Barang::query()->orderBy('id_barang', 'DESC')->get();
+        $barang = Barang::query()->with('pemasok')->orderBy('id_barang', 'DESC')->get();
 
         // Redirect ke halaman utama barang
         // Beserta dengan seluruh data barang yang sudah diambil diatas
@@ -30,7 +31,12 @@ class BarangController extends Controller
      */
     public function halamanTambahBarang()
     {
-        return view('pages.barang.halaman-tambah-barang');
+        // Ambil data pemasok sebagai pilihan di form
+        $pemasok = Pemasok::all();
+
+        return view('pages.barang.halaman-tambah-barang')->with([
+            'pemasok' => $pemasok,
+        ]);
     }
 
     /**
@@ -41,6 +47,7 @@ class BarangController extends Controller
         // Ambil data dari form tambah barang
         $data = [
             'nama_barang' => $request->input('nama_barang'),
+            'id_pemasok' => $request->input('id_pemasok'),
         ];
 
         // Insert data tersebut ke database
@@ -62,9 +69,13 @@ class BarangController extends Controller
         // Ambil data barang yang ingin diubah berdasarkan id
         $barang = Barang::query()->findOrFail($idBarang);
 
+        // Ambil data pemasok sebagai pilihan di form
+        $pemasok = Pemasok::all();
+
         // Redirect ke halaman ubah barang beserta data barang yang ingin diubah
         return view('pages.barang.halaman-ubah-barang')->with([
-            'barang' => $barang
+            'barang' => $barang,
+            'pemasok' => $pemasok
         ]);
     }
 
@@ -76,6 +87,7 @@ class BarangController extends Controller
         // Ambil data dari form ubah barang
         $data = [
             'nama_barang' => $request->input('nama_barang'),
+            'id_pemasok' => $request->input('id_pemasok'),
         ];
 
         // Ambil terlebih dahulu data barang yang ingin diubah dari database

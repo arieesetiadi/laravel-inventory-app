@@ -16,6 +16,7 @@ class CreateBarangsTable extends Migration
         Schema::create('barang', function (Blueprint $table) {
             $table->integerIncrements('id_barang');
             $table->string('nama_barang', 100);
+            $table->integer('id_pemasok')->default(0);
         });
     }
 

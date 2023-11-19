@@ -30,6 +30,17 @@
                                     placeholder="Nama barang" required>
                             </div>
 
+                            {{-- INPUT NAMA PEMASOK --}}
+                            <div class="mb-3">
+                                <label for="pemasok" class="form-label required">Nama Pemasok</label>
+                                <select required id="pemasok" name="id_pemasok" class="form-select select2">
+                                    <option selected disabled>Masukan nama pemasok</option>
+                                    @foreach ($pemasok as $item)
+                                        <option value="{{ $item->id_pemasok }}" {{ $item->id_pemasok == $barang->id_pemasok ? 'selected' : '' }}>{{ $item->nama_pemasok }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
                             <div class="mt-4 d-flex gap-2">
                                 <a type="button" class="btn btn-light" href="{{ route('halamanUtamaBarang') }}">
                                     Kembali

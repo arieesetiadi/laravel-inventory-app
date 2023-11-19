@@ -14,4 +14,12 @@ class Barang extends Model
     public $timestamps = false;
 
     protected $guarded = [];
+
+    /**
+     * Relasi pemasok
+     */
+    public function pemasok()
+    {
+        return $this->belongsTo(Pemasok::class, 'id_pemasok');
+    }
 }

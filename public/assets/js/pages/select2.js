@@ -2,7 +2,7 @@ $(document).ready(function() {
     
     "use strict";
     
-    $('select').select2();
+    $('select.select2').select2();
     
     $(".js-example-basic-multiple-limit").select2({
         maximumSelectionLength: 2

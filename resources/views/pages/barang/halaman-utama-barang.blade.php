@@ -68,12 +68,30 @@
                                                                     aria-label="Close"></button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <table class="table table-borderless">
+                                                                <table class="table-borderless table">
                                                                     <tbody>
                                                                         <tr>
-                                                                            <td>Nama</td>
+                                                                            <td>Nama Barang</td>
                                                                             <td>:</td>
                                                                             <td>{{ $item->nama_barang }}</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Pemasok</td>
+                                                                            <td>:</td>
+                                                                            <td>
+                                                                                <ul class="px-0"
+                                                                                    style="list-style-type: none">
+                                                                                    <li>
+                                                                                        <strong>{{ $item->pemasok->nama_pemasok }}</strong>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        {{ $item->pemasok->alamat }}
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        {{ $item->pemasok->telp }}
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </td>
                                                                         </tr>
                                                                     </tbody>
                                                                 </table>

@@ -22,9 +22,20 @@
 
                             {{-- INPUT NAMA BARANG --}}
                             <div class="mb-3">
-                                <label for="nama_barang" class="form-label required">Nama</label>
+                                <label for="nama_barang" class="form-label required">Nama Barang</label>
                                 <input maxlength="100" name="nama_barang" type="text" class="form-control"
                                     id="nama_barang" aria-describedby="nama_barang" placeholder="Nama barang" required>
+                            </div>
+
+                            {{-- INPUT NAMA PEMASOK --}}
+                            <div class="mb-3">
+                                <label for="pemasok" class="form-label required">Nama Pemasok</label>
+                                <select required id="pemasok" name="id_pemasok" class="form-select select2">
+                                    <option selected disabled>Masukan nama pemasok</option>
+                                    @foreach ($pemasok as $item)
+                                        <option value="{{ $item->id_pemasok }}">{{ $item->nama_pemasok }}</option>
+                                    @endforeach
+                                </select>
                             </div>
 
                             <div class="d-flex mt-4 gap-2">
