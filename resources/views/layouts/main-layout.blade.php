@@ -153,12 +153,24 @@
     <script src="{{ asset('assets/plugins/datatables/datatables.min.js') }}"></script>
     <script src="{{ asset('assets/js/main.min.js') }}"></script>
     <script src="{{ asset('assets/js/pages/datatables.js') }}"></script>
-    <script src="{{ asset('assets/js/custom.js') }}"></script>
     {{-- <script src="{{ asset('assets/js/pages/dashboard.js') }}"></script> --}}
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js"
+        integrity="sha512-WMEKGZ7L5LWgaPeJtw9MBM4i5w5OSBlSjTjCtSnvFJGSVD26gE5+Td12qN5pvWXhuWaWcVwF++F7aqu9cvqP0A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/additional-methods.min.js"
+        integrity="sha512-TiQST7x/0aMjgVTcep29gi+q5Lk5gVTUPE9XgN0g96rwtjEjLpod4mlBRKWHeBcvGBAEvJBmfDqh2hfMMmg+5A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/localization/messages_id.min.js"
+        integrity="sha512-OPPBKm9G1nQhKpHk3aKt0VcpZOjQbFASwF5zDZgtLzCLr3xzFqTz6BMyNcg6nSqz2v85lkmsUU4ncueJLS5iYg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.10.0/sweetalert2.min.js"
         integrity="sha512-rO18JLH5mM83ToEn/5KhZ8BpHJ4uUKrGLybcp6wK0yuRfqQCSGVbEq1yIn/9coUjRU88TA6UJDLPK9sO6DN0Iw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="{{ asset('assets/js/custom.js') }}"></script>
+
+    @stack('scripts')
 
     {{-- SWAL --}}
     @if ($swal = session('swal'))

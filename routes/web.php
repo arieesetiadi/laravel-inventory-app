@@ -31,6 +31,10 @@ Route::middleware('auth')->group(function () {
     Route::prefix('/pemasok')->controller(PemasokController::class)->group(function () {
         Route::get('/', 'halamanUtamaPemasok')->name('halamanUtamaPemasok');
         Route::get('/tambah', 'halamanTambahPemasok')->name('halamanTambahPemasok');
+        Route::post('/tambah', 'prosesTambahPemasok')->name('prosesTambahPemasok');
+        Route::get('/ubah/{id}', 'halamanUbahPemasok')->name('halamanUbahPemasok');
+        Route::put('/ubah/{id}', 'prosesUbahPemasok')->name('prosesUbahPemasok');
+        Route::get('/hapus/{id}', 'prosesHapusPemasok')->name('prosesHapusPemasok');
     });
 
     // Route Logout

@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pemasok;
+use App\Traits\HasWebResponses;
 use Illuminate\Http\Request;
 
 class PemasokController extends Controller
 {
+    use HasWebResponses;
+
     /**
      * Redirect ke halaman utama pemasok.
      */
@@ -28,5 +31,71 @@ class PemasokController extends Controller
     public function halamanTambahPemasok()
     {
         return view('pages.pemasok.halaman-tambah-pemasok');
+    }
+
+    /**
+     * Proses tambah data pemasok ke database.
+     */
+    public function prosesTambahPemasok(Request $request)
+    {
+        // Ambil data dari form tambah pemasok
+        $data = [
+            'nama_pemasok' => $request->input('nama_pemasok'),
+            'alamat' => $request->input('alamat'),
+            'telp' => $request->input('telp'),
+        ];
+
+        // Insert data tersebut ke database
+        Pemasok::query()->create($data);
+
+        // Redirect ke halaman utama pemasok setelah proses insert
+        return $this->success('Berhasil menambah data pemasok', route('halamanUtamaPemasok'));
+    }
+
+    /**
+     * Redirect ke halaman ubah pemasok.
+     */
+    public function halamanUbahPemasok($idPemasok)
+    {
+        // Ambil data pemasok yang ingin diubah berdasarkan id
+        $pemasok = Pemasok::query()->findOrFail($idPemasok);
+
+        // Redirect ke halaman ubah pemasok beserta data pemasok yang ingin diubah
+        return view('pages.pemasok.halaman-ubah-pemasok')->with([
+            'pemasok' => $pemasok
+        ]);
+    }
+
+    /**
+     * Proses ubah data pemasok pada database.
+     */
+    public function prosesUbahPemasok(Request $request, $idPemasok)
+    {
+        // Ambil data dari form ubah pemasok
+        $data = [
+            'nama_pemasok' => $request->input('nama_pemasok'),
+            'alamat' => $request->input('alamat'),
+            'telp' => $request->input('telp'),
+        ];
+
+        // Ambil terlebih dahulu data pemasok yang ingin diubah dari database
+        $pemasok = Pemasok::query()->findOrFail($idPemasok);
+
+        // Ubah pemasok tersebut dengan data terbaru
+        $pemasok->update($data);
+
+        // Redirect ke halaman utama pemasok setelah proses ubah
+        return $this->success('Berhasil mengubah data pemasok', route('halamanUtamaPemasok'));
+    }
+
+    /**
+     * Proses hapus data pemasok dari database
+     */
+    public function prosesHapusPemasok($idPemasok){
+        // Hapus dari database pemasok berdasarkan id
+        Pemasok::query()->find($idPemasok)->delete();
+
+        // Redirect ke halaman utama pemasok setelah proses hapus
+        return $this->success('Berhasil menghapus data pemasok', route('halamanUtamaPemasok'));
     }
 }
