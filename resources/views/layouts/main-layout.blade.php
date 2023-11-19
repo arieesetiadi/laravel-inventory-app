@@ -55,7 +55,7 @@
             <div class="app-menu">
                 <ul class="accordion-menu">
                     <li class="sidebar-title">
-                        Utama
+                        Menu Utama
                     </li>
 
                     <li class="active-page">
@@ -63,6 +63,40 @@
                             <i class="material-icons-two-tone">dashboard</i>Dashboard
                         </a>
                     </li>
+
+                    {{-- <li class="sidebar-title">
+                        Menu Pengelolaan
+                    </li>
+
+                    <li>
+                        <a href="{{ route('dashboard') }}">
+                            <i class="material-icons-two-tone">person</i>Data Pemasok
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ route('dashboard') }}">
+                            <i class="material-icons-two-tone">inventory_2</i>Data Barang
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ route('dashboard') }}">
+                            <i class="material-icons-two-tone">archive</i>Data Barang Masuk
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="{{ route('dashboard') }}">
+                            <i class="material-icons-two-tone">unarchive</i>Data Barang Keluar
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ route('dashboard') }}">
+                            <i class="material-icons-two-tone">description</i>Laporan
+                        </a>
+                    </li> --}}
 
                     {{-- <li>
                         <a href="mailbox.html">
@@ -77,7 +111,7 @@
 
                     <li>
                         <a data-type="link" onclick="swalConfirm(event)" href="{{ route('logout') }}">
-                            <i class="material-icons-two-tone">power_settings_new</i>Logout
+                            <i class="material-icons-two-tone">keyboard_backspace</i>Logout
                         </a>
                     </li>
                 </ul>
@@ -115,10 +149,9 @@
     <script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/perfectscroll/perfect-scrollbar.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/pace/pace.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/apexcharts/apexcharts.min.js') }}"></script>
     <script src="{{ asset('assets/js/main.min.js') }}"></script>
     <script src="{{ asset('assets/js/custom.js') }}"></script>
-    <script src="{{ asset('assets/js/pages/dashboard.js') }}"></script>
+    {{-- <script src="{{ asset('assets/js/pages/dashboard.js') }}"></script> --}}
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.10.0/sweetalert2.min.js"
         integrity="sha512-rO18JLH5mM83ToEn/5KhZ8BpHJ4uUKrGLybcp6wK0yuRfqQCSGVbEq1yIn/9coUjRU88TA6UJDLPK9sO6DN0Iw=="
