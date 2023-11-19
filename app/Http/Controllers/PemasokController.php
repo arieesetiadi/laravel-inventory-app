@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pemasok;
-use App\Traits\HasWebResponses;
 use Illuminate\Http\Request;
+use App\Traits\HasWebResponses;
+use App\Models\Pemasok;
 
 class PemasokController extends Controller
 {

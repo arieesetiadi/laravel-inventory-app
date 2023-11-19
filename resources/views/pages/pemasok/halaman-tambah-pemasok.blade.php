@@ -41,7 +41,10 @@
                                     aria-describedby="telp" placeholder="Nomor telepon pemasok" required>
                             </div>
 
-                            <div class="mt-4">
+                            <div class="mt-4 d-flex gap-2">
+                                <a type="button" class="btn btn-light" href="{{ route('halamanUtamaPemasok') }}">
+                                    Kembali
+                                </a>
                                 <button type="submit" class="btn btn-primary">
                                     Simpan
                                 </button>

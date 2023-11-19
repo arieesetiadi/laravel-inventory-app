@@ -66,9 +66,9 @@
                         Menu Pengelolaan
                     </li>
 
+                    {{-- Khusus Admin --}}
                     @if (is_admin())
-                        {{-- Khusus Admin --}}
-                        <li class="{{ request()->routeIs('halamanUtamaPemasok') ? 'active-page' : '' }}">
+                        <li class="{{ is_url('pemasok') || is_url('pemasok/*') ? 'active-page' : '' }}">
                             <a href="{{ route('halamanUtamaPemasok') }}">
                                 <i class="material-icons-two-tone">person</i>Data Pemasok
                             </a>

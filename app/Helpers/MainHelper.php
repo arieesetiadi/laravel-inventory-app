@@ -3,8 +3,8 @@
 use App\Constants\UserRole;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
-use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 /**
  * Date format.
@@ -20,6 +20,16 @@ const TIME_FORMAT = 'h:i A';
  * Date and Time format.
  */
 const DATE_TIME_FORMAT = DATE_FORMAT . ' ' . TIME_FORMAT;
+
+/**
+ * Check current url.
+ */
+if (!function_exists('is_url')) {
+    function is_url($pattern): bool
+    {
+        return Str::is($pattern, Route::current()->uri);
+    }
+}
 
 /**
  * Check if the logged in user is the owner.
