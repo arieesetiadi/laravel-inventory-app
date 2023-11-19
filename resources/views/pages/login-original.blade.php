@@ -29,45 +29,43 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/neptune.png') }}" />
 </head>
 
-<body id="login">
-    <div class="container login-container">
-        <div class="card shadow">
-            <div class="card-body py-5">
-                <div class="d-flex justify-content-center mb-4">
-                    <img width="100" height="100" src="{{ asset('assets/images/logo/logo-srimurti.png') }}">
+<body>
+    <div class="app app-auth-sign-in align-content-stretch d-flex justify-content-end flex-wrap">
+        <div class="app-auth-background"></div>
+
+        {{-- FORM LOGIN --}}
+        <form id="login-form" action="{{ route('prosesLogin') }}" method="POST" class="app-auth-container">
+            @csrf
+
+            <div class="logo">
+                <a href="{{ route('login') }}">Login</a>
+            </div>
+
+            <p class="auth-description">
+                Silahkan login untuk masuk ke dalam sistem dashboard.
+            </p>
+
+            <div class="auth-credentials m-b-xxl">
+                {{-- INPUT USERNAME --}}
+                <div class="m-b-md">
+                    <label for="username" class="form-label">Username</label>
+                    <input name="username" type="text" class="form-control" id="username"
+                        aria-describedby="username" placeholder="Username" required>
                 </div>
 
-                <h2 class="text-center mb-4">
-                    Login
-                </h2>
-                
-                {{-- FORM LOGIN --}}
-                <form id="login-form" action="{{ route('prosesLogin') }}" method="POST">
-                    @csrf
-
-                    {{-- INPUT USERNAME --}}
-                    <div class="m-b-md">
-                        <label for="username" class="form-label">Username</label>
-                        <input name="username" type="text" class="form-control" id="username"
-                            aria-describedby="username" placeholder="Username" required>
-                    </div>
-
-                    {{-- INPUT PASSWORD --}}
-                    <div>
-                        <label for="password" class="form-label">Password</label>
-                        <input name="password" type="password" class="form-control" id="password"
-                            aria-describedby="password"
-                            placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" required>
-                    </div>
-
-                    <div class="mt-5">
-                        <button type="submit" class="btn btn-primary w-100">
-                            Login
-                        </button>
-                    </div>
-                </form>
+                {{-- INPUT PASSWORD --}}
+                <div class="">
+                    <label for="password" class="form-label">Password</label>
+                    <input name="password" type="password" class="form-control" id="password"
+                        aria-describedby="password"
+                        placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" required>
+                </div>
             </div>
-        </div>
+
+            <div class="auth-submit">
+                <button type="submit" class="btn btn-primary">Login</button>
+            </div>
+        </form>
     </div>
 
     {{-- SCRIPTS --}}

@@ -26,7 +26,7 @@
     <link href="{{ asset('assets/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/plugins/perfectscroll/perfect-scrollbar.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/plugins/pace/pace.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/main.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet">
 
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/images/neptune.png') }}" />
@@ -46,8 +46,8 @@
                     <div>
                         <img src="{{ asset('assets/images/avatars/user.png') }}">
                         <span class="activity-indicator"></span>
-                        <span class="user-info-text">Robert<br>
-                            <span class="user-state-info">Admin</span>
+                        <span class="user-info-text">{{ auth()->user()->nama_user }}<br>
+                            <span class="user-state-info">{{ auth()->user()->role }}</span>
                         </span>
                     </div>
                 </div>
@@ -55,21 +55,21 @@
             <div class="app-menu">
                 <ul class="accordion-menu">
                     <li class="sidebar-title">
-                        Apps
+                        Utama
                     </li>
 
                     <li class="active-page">
-                        <a href="index.html" class="active">
+                        <a href="{{ route('dashboard') }}" class="active">
                             <i class="material-icons-two-tone">dashboard</i>Dashboard
                         </a>
                     </li>
 
-                    <li>
+                    {{-- <li>
                         <a href="mailbox.html">
                             <i class="material-icons-two-tone">inbox</i>Mailbox
                             <span class="badge rounded-pill badge-danger float-end">87</span>
                         </a>
-                    </li>
+                    </li> --}}
 
                     <li class="sidebar-title">
                         Lainnya
