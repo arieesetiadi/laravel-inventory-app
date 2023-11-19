@@ -11,3 +11,9 @@ body#login {
 .login-container>.card {
     width: 40%;
 }
+
+label.required::after{
+    content: '*';
+    color: red;
+    margin: 0 2px;
+}

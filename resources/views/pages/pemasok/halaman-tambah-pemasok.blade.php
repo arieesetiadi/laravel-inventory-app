@@ -22,21 +22,21 @@
 
                             {{-- INPUT NAMA PEMASOK --}}
                             <div class="mb-3">
-                                <label for="nama_pemasok" class="form-label">Nama</label>
+                                <label for="nama_pemasok" class="form-label required">Nama</label>
                                 <input maxlength="100" name="nama_pemasok" type="text" class="form-control"
                                     id="nama_pemasok" aria-describedby="nama_pemasok" placeholder="Nama pemasok" required>
                             </div>
 
                             {{-- INPUT ALAMAT PEMASOK --}}
                             <div class="mb-3">
-                                <label for="alamat" class="form-label">Alamat</label>
+                                <label for="alamat" class="form-label required">Alamat</label>
                                 <input maxlength="100" name="alamat" type="text" class="form-control" id="alamat"
                                     aria-describedby="alamat" placeholder="Alamat pemasok" required>
                             </div>
 
                             {{-- INPUT NO TELEPON PEMASOK --}}
                             <div class="mb-3">
-                                <label for="telp" class="form-label">Nomor Telepon</label>
+                                <label for="telp" class="form-label required">Nomor Telepon</label>
                                 <input maxlength="100" name="telp" type="text" class="form-control" id="telp"
                                     aria-describedby="telp" placeholder="Nomor telepon pemasok" required>
                             </div>

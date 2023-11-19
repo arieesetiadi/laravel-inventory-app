@@ -46,7 +46,11 @@ class PemasokController extends Controller
         ];
 
         // Insert data tersebut ke database
-        Pemasok::query()->create($data);
+        $result = Pemasok::query()->create($data);
+
+        if (!$result) {
+            $this->failed('Gagal menambah data pemasok');
+        }
 
         // Redirect ke halaman utama pemasok setelah proses insert
         return $this->success('Berhasil menambah data pemasok', route('halamanUtamaPemasok'));
@@ -82,7 +86,11 @@ class PemasokController extends Controller
         $pemasok = Pemasok::query()->findOrFail($idPemasok);
 
         // Ubah pemasok tersebut dengan data terbaru
-        $pemasok->update($data);
+        $result = $pemasok->update($data);
+
+        if (!$result) {
+            $this->failed('Gagal mengubah data pemasok');
+        }
 
         // Redirect ke halaman utama pemasok setelah proses ubah
         return $this->success('Berhasil mengubah data pemasok', route('halamanUtamaPemasok'));
@@ -91,7 +99,8 @@ class PemasokController extends Controller
     /**
      * Proses hapus data pemasok dari database
      */
-    public function prosesHapusPemasok($idPemasok){
+    public function prosesHapusPemasok($idPemasok)
+    {
         // Hapus dari database pemasok berdasarkan id
         Pemasok::query()->find($idPemasok)->delete();
 

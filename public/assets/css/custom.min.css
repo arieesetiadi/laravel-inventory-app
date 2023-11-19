@@ -1,1 +1,1 @@
-body#login{background-color:unset;}.login-container{height:100vh;display:grid;place-items:center;}.login-container>.card{width:40%;}
+body#login{background-color:unset;}.login-container{height:100vh;display:grid;place-items:center;}.login-container>.card{width:40%;}label.required::after{content:'*';color:red;margin:0 2px;}
