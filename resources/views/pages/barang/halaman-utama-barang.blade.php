@@ -6,67 +6,63 @@
             <div class="col">
                 <div class="page-description d-flex align-items-center">
                     <div class="page-description-content flex-grow-1">
-                        <h1>Pemasok</h1>
+                        <h1>Barang</h1>
                     </div>
                     <div class="page-description-actions">
-                        <a href="{{ route('halamanTambahPemasok') }}" class="btn btn-primary"><i
-                                class="material-icons">add</i>Tambah Pemasok</a>
+                        <a href="{{ route('halamanTambahBarang') }}" class="btn btn-primary"><i
+                                class="material-icons">add</i>Tambah Barang</a>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="row">
-            <div class="col">
+            <div class="col-12 col-md-7">
                 <div class="card">
                     <div class="card-body">
                         <table class="datatable table">
                             <thead>
                                 <tr>
                                     <th>No.</th>
-                                    <th>Nama Pemasok</th>
-                                    <th>Nomor Telepon</th>
-                                    <th>Alamat</th>
+                                    <th>Nama Barang</th>
                                     <th></th>
                                 </tr>
                             </thead>
 
                             <tbody>
-                                @forelse ($pemasok as $item)
+                                @forelse ($barang as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->nama_pemasok }}</td>
-                                        <td>{{ $item->telp }}</td>
-                                        <td>{{ $item->alamat }}</td>
+                                        <td>{{ $item->nama_barang }}</td>
                                         <td class="d-flex justify-content-end gap-2">
-                                            <a href="{{ route('halamanUbahPemasok', $item->id_pemasok) }}"
+                                            <a href="{{ route('halamanUbahBarang', $item->id_barang) }}"
                                                 class="btn btn-sm btn-light">
                                                 Ubah
                                             </a>
 
                                             <a href="javascript:void(0);" class="btn btn-sm btn-light" role="button"
                                                 data-bs-toggle="modal"
-                                                data-bs-target="#detail-pemasok-modal-{{ $item->id_pemasok }}">
+                                                data-bs-target="#detail-barang-modal-{{ $item->id_barang }}">
                                                 Detail
                                             </a>
 
                                             <a onclick="swalConfirm(event)" data-type="link"
-                                                href="{{ route('prosesHapusPemasok', $item->id_pemasok) }}"
+                                                href="{{ route('prosesHapusBarang', $item->id_barang) }}"
                                                 class="btn btn-sm btn-danger">
                                                 Hapus
                                             </a>
 
                                             @push('scripts')
-                                                <div class="modal fade" id="detail-pemasok-modal-{{ $item->id_pemasok }}"
+                                                <div class="modal fade" id="detail-barang-modal-{{ $item->id_barang }}"
                                                     tabindex="-1"
-                                                    aria-labelledby="detail-pemasok-modal-{{ $item->id_pemasok }}-label"
+                                                    aria-labelledby="detail-barang-modal-{{ $item->id_barang }}-label"
                                                     aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-centered">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
                                                                 <h5 class="modal-title"
-                                                                    id="detail-pemasok-modal-{{ $item->id_pemasok }}-label">
-                                                                    Detail "{{ $item->nama_pemasok }}"
+                                                                    id="detail-barang-modal-{{ $item->id_barang }}-label">
+                                                                    Detail "{{ $item->nama_barang }}"
                                                                 </h5>
                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                                     aria-label="Close"></button>
@@ -77,17 +73,7 @@
                                                                         <tr>
                                                                             <td>Nama</td>
                                                                             <td>:</td>
-                                                                            <td>{{ $item->nama_pemasok }}</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>Alamat</td>
-                                                                            <td>:</td>
-                                                                            <td>{{ $item->alamat }}</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>Nomor Telepon</td>
-                                                                            <td>:</td>
-                                                                            <td>{{ $item->telp }}</td>
+                                                                            <td>{{ $item->nama_barang }}</td>
                                                                         </tr>
                                                                     </tbody>
                                                                 </table>
@@ -108,7 +94,7 @@
                                     <tr>
                                         <td colspan="3">
                                             <h6 class="text-center">
-                                                Data pemasok tidak tersedia saat ini.
+                                                Data barang tidak tersedia saat ini.
                                             </h6>
                                         </td>
                                     </tr>

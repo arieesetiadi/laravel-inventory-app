@@ -73,6 +73,12 @@
                                 <i class="material-icons-two-tone">person</i>Data Pemasok
                             </a>
                         </li>
+
+                        <li class="{{ is_url('barang') || is_url('barang/*') ? 'active-page' : '' }}">
+                            <a href="{{ route('halamanUtamaBarang') }}">
+                                <i class="material-icons-two-tone">inventory_2</i>Data Barang
+                            </a>
+                        </li>
                     @endif
 
                     {{-- <li>
