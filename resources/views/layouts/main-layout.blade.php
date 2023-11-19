@@ -16,9 +16,6 @@
     <link
         href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.10.0/sweetalert2.min.css"
         integrity="sha512-l1vPIxNzx1pUOKdZEe4kEnWCBzFVVYX5QziGS7zRZE4Gi5ykXrfvUgnSBttDbs0kXe2L06m9+51eadS+Bg6a+A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -26,6 +23,7 @@
     <link href="{{ asset('assets/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/plugins/perfectscroll/perfect-scrollbar.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/plugins/pace/pace.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/plugins/datatables/datatables.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet">
 
@@ -58,8 +56,8 @@
                         Menu Utama
                     </li>
 
-                    <li class="active-page">
-                        <a href="{{ route('dashboard') }}" class="active">
+                    <li class="{{ request()->routeIs('dashboard') ? 'active-page' : '' }}">
+                        <a href="{{ route('dashboard') }}">
                             <i class="material-icons-two-tone">dashboard</i>Dashboard
                         </a>
                     </li>
@@ -67,10 +65,11 @@
                     <li class="sidebar-title">
                         Menu Pengelolaan
                     </li>
-                    
-                    @if (is_admin()) {{-- Khusus Admin --}}
-                        <li>
-                            <a href="{{ route('dashboard') }}">
+
+                    @if (is_admin())
+                        {{-- Khusus Admin --}}
+                        <li class="{{ request()->routeIs('halamanUtamaPemasok') ? 'active-page' : '' }}">
+                            <a href="{{ route('halamanUtamaPemasok') }}">
                                 <i class="material-icons-two-tone">person</i>Data Pemasok
                             </a>
                         </li>
@@ -151,7 +150,9 @@
     <script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/perfectscroll/perfect-scrollbar.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/pace/pace.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatables/datatables.min.js') }}"></script>
     <script src="{{ asset('assets/js/main.min.js') }}"></script>
+    <script src="{{ asset('assets/js/pages/datatables.js') }}"></script>
     <script src="{{ asset('assets/js/custom.js') }}"></script>
     {{-- <script src="{{ asset('assets/js/pages/dashboard.js') }}"></script> --}}
 

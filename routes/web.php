@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\PemasokController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,6 +26,12 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     // Route Dashboard
     Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
+
+    // Route Pemasok
+    Route::prefix('/pemasok')->controller(PemasokController::class)->group(function () {
+        Route::get('/', 'halamanUtamaPemasok')->name('halamanUtamaPemasok');
+        Route::get('/tambah', 'halamanTambahPemasok')->name('halamanTambahPemasok');
+    });
 
     // Route Logout
     Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
