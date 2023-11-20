@@ -28,10 +28,16 @@
                                     @if (!empty($barang))
                                         <option selected disabled>Masukan nama barang</option>
                                         @foreach ($barang as $item)
-                                            <option value="{{ $item->id_barang }}"
-                                                {{ $item->id_barang == $barangKeluar->id_barang ? 'selected' : '' }}>
-                                                {{ $item->nama_barang }}
-                                            </option>
+                                            @if ($item->stock > 0)
+                                                <option value="{{ $item->id_barang }}"
+                                                    {{ $item->id_barang == $barangKeluar->id_barang ? 'selected' : '' }}>
+                                                    {{ $item->nama_barang }} (Stok tersisa {{ $item->stock }})
+                                                </option>
+                                            @else
+                                                <option disabled value="{{ $item->id_barang }}">
+                                                    {{ $item->nama_barang }} (Stok kosong)
+                                                </option>
+                                            @endif
                                         @endforeach
                                     @else
                                         <option selected disabled>Stok semua barang sedang habis.</option>

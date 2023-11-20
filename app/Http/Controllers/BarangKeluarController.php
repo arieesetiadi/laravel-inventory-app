@@ -32,7 +32,6 @@ class BarangKeluarController extends Controller
     public function halamanTambahBarangKeluar()
     {
         // Ambil data barang sebagai pilihan di form
-        // TODO: Filter available stock only
         $barang = Barang::all();
 
         return view('pages.barang-keluar.halaman-tambah-barang-keluar')->with([
@@ -73,7 +72,6 @@ class BarangKeluarController extends Controller
         $barangKeluar = BarangKeluar::query()->findOrFail($idBarangKeluar);
 
         // Ambil data barang sebagai pilihan di form
-        // TODO: Filter available stock only
         $barang = Barang::all();
 
         // Redirect ke halaman ubah barang keluar beserta data barang keluar yang ingin diubah
