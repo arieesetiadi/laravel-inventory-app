@@ -6,11 +6,11 @@
             <div class="col">
                 <div class="page-description d-flex align-items-center">
                     <div class="page-description-content flex-grow-1">
-                        <h1>Barang Masuk</h1>
+                        <h1>Barang Keluar</h1>
                     </div>
                     <div class="page-description-actions">
-                        <a href="{{ route('halamanTambahBarangMasuk') }}" class="btn btn-primary">
-                            <i class="material-icons">add</i>Tambah Barang Masuk
+                        <a href="{{ route('halamanTambahBarangKeluar') }}" class="btn btn-primary">
+                            <i class="material-icons">add</i>Tambah Barang Keluar
                         </a>
                     </div>
                 </div>
@@ -25,51 +25,49 @@
                             <thead>
                                 <tr>
                                     <th>No.</th>
-                                    <th>No. Nota</th>
                                     <th>Nama Barang</th>
                                     <th>Jumlah</th>
-                                    <th>Tanggal Masuk</th>
+                                    <th>Tanggal Keluar</th>
                                     <th></th>
                                 </tr>
                             </thead>
 
                             <tbody>
-                                @forelse ($barangMasuk as $item)
+                                @forelse ($barangKeluar as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->nomor_nota }}</td>
                                         <td>{{ $item->nama_barang }}</td>
                                         <td>{{ $item->jumlah }}</td>
-                                        <td>{{ human_date($item->tgl_masuk)}} ({{ human_datetime_diff($item->tgl_masuk) }})</td>
+                                        <td>{{ human_date($item->tgl_keluar)}} ({{ human_datetime_diff($item->tgl_keluar) }})</td>
                                         <td class="d-flex justify-content-end gap-2">
-                                            <a href="{{ route('halamanUbahBarangMasuk', $item->id_brng_masuk) }}"
+                                            <a href="{{ route('halamanUbahBarangKeluar', $item->id_brng_keluar) }}"
                                                 class="btn btn-sm btn-light">
                                                 Ubah
                                             </a>
 
                                             <a href="javascript:void(0);" class="btn btn-sm btn-light" role="button"
                                                 data-bs-toggle="modal"
-                                                data-bs-target="#detail-barang-masuk-modal-{{ $item->id_brng_masuk }}">
+                                                data-bs-target="#detail-barang-keluar-modal-{{ $item->id_brng_keluar }}">
                                                 Detail
                                             </a>
 
                                             <a onclick="swalConfirm(event)" data-type="link"
-                                                href="{{ route('prosesHapusBarangMasuk', $item->id_brng_masuk) }}"
+                                                href="{{ route('prosesHapusBarangKeluar', $item->id_brng_keluar) }}"
                                                 class="btn btn-sm btn-danger">
                                                 Hapus
                                             </a>
 
                                             @push('scripts')
-                                                <div class="modal fade" id="detail-barang-masuk-modal-{{ $item->id_brng_masuk }}"
+                                                <div class="modal fade" id="detail-barang-keluar-modal-{{ $item->id_brng_keluar }}"
                                                     tabindex="-1"
-                                                    aria-labelledby="detail-barang-masuk-modal-{{ $item->id_brng_masuk }}-label"
+                                                    aria-labelledby="detail-barang-keluar-modal-{{ $item->id_brng_keluar }}-label"
                                                     aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-centered">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
                                                                 <h5 class="modal-title"
-                                                                    id="detail-barang-masuk-modal-{{ $item->id_brng_masuk }}-label">
-                                                                    Detail Barang Masuk "{{ $item->nama_barang }}"
+                                                                    id="detail-barang-keluar-modal-{{ $item->id_brng_keluar }}-label">
+                                                                    Detail Barang Keluar "{{ $item->nama_barang }}"
                                                                 </h5>
                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                                     aria-label="Close"></button>
@@ -77,11 +75,6 @@
                                                             <div class="modal-body">
                                                                 <table class="table">
                                                                     <tbody>
-                                                                        <tr>
-                                                                            <td class="p-0">No. Nota</td>
-                                                                            <td class="p-0">:</td>
-                                                                            <td class="p-0">{{ $item->nomor_nota }}</td>
-                                                                        </tr>
                                                                         <tr>
                                                                             <td class="p-0">Detail Barang</td>
                                                                             <td class="p-0">:</td>
@@ -103,9 +96,9 @@
                                                                             <td class="p-0">{{ $item->jumlah }}</td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <td class="p-0">Tanggal Masuk</td>
+                                                                            <td class="p-0">Tanggal Keluar</td>
                                                                             <td class="p-0">:</td>
-                                                                            <td class="p-0">{{ human_date($item->tgl_masuk)}}</td>
+                                                                            <td class="p-0">{{ human_date($item->tgl_keluar)}}</td>
                                                                         </tr>
                                                                     </tbody>
                                                                 </table>
@@ -124,9 +117,9 @@
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="6">
+                                        <td colspan="5">
                                             <h6 class="text-center">
-                                                Data barang masuk tidak tersedia saat ini.
+                                                Data barang keluar tidak tersedia saat ini.
                                             </h6>
                                         </td>
                                     </tr>

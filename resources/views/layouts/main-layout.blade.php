@@ -87,11 +87,11 @@
                             </a>
                         </li>
                         
-                        {{-- <li>
-                            <a href="{{ route('dashboard') }}">
+                        <li class="{{ is_url('barang-keluar') || is_url('barang-keluar/*') ? 'active-page' : '' }}">
+                            <a href="{{ route('halamanUtamaBarangKeluar') }}">
                                 <i class="material-icons-two-tone">unarchive</i>Data Barang Keluar
                             </a>
-                        </li> --}}
+                        </li>
     
                         {{-- <li>
                             <a href="{{ route('dashboard') }}">

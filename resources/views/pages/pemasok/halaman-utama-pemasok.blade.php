@@ -106,7 +106,7 @@
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="3">
+                                        <td colspan="5">
                                             <h6 class="text-center">
                                                 Data pemasok tidak tersedia saat ini.
                                             </h6>
