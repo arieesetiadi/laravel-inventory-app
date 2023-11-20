@@ -37,7 +37,7 @@
                                 @forelse ($stokBarang as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->nama_barang }}</td>
+                                        <td>{{ $item->barang->nama_barang }}</td>
                                         <td>{{ $item->jumlah }}</td>
                                         <td>{{ $item->barang->satuan }}</td>
                                         <td>

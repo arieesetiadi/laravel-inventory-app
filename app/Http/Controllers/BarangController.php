@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Barang;
 use App\Models\Pemasok;
+use App\Models\StokBarang;
 use App\Traits\HasWebResponses;
 use Illuminate\Http\Request;
 
@@ -53,6 +54,13 @@ class BarangController extends Controller
 
         // Insert data tersebut ke database
         $result = Barang::query()->create($data);
+
+        // Siapkah data stok berjumlah 0 by default untuk barang yang baru ditambah
+        StokBarang::create([
+            'id_barang' => $result->id_barang,
+            'jumlah' => 0,
+            'nama_barang' => $result->nama_barang,
+        ]);
 
         if (!$result) {
             $this->failed('Gagal menambah data barang');

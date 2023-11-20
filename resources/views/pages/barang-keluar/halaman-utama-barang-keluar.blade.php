@@ -37,7 +37,7 @@
                                 @forelse ($barangKeluar as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->nama_barang }}</td>
+                                        <td>{{ $item->barang->nama_barang }}</td>
                                         <td>{{ $item->jumlah }}</td>
                                         <td>{{ $item->barang->satuan }}</td>
                                         <td>{{ human_date($item->tgl_keluar)}} ({{ human_datetime_diff($item->tgl_keluar) }})</td>
