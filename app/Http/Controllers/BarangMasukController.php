@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Barang;
 use App\Models\BarangMasuk;
+use App\Models\StokBarang;
 use App\Traits\HasWebResponses;
 use Illuminate\Http\Request;
 
@@ -56,6 +57,9 @@ class BarangMasukController extends Controller
         // Insert data tersebut ke database
         $result = BarangMasuk::query()->create($data);
 
+        // Ubah data stok barang sesuai jumlah barang masuk.
+        StokBarang::query()->where('id_barang', $request->id_barang)->increment('jumlah', $request->jumlah);
+
         if (!$result) {
             $this->failed('Gagal menambah data barang masuk');
         }
@@ -96,11 +100,16 @@ class BarangMasukController extends Controller
             'nama_barang' => Barang::query()->find($request->id_barang)->nama_barang,
         ];
 
+        $jumlah = $request->jumlah - $request->jumlah_prev;
+
         // Ambil terlebih dahulu data barang masuk yang ingin diubah dari database
         $barangMasuk = BarangMasuk::query()->findOrFail($idBarangMasuk);
 
         // Ubah barang masuk tersebut dengan data terbaru
         $result = $barangMasuk->update($data);
+
+        // Ubah data stok barang sesuai jumlah barang masuk.
+        StokBarang::query()->where('id_barang', $request->id_barang)->increment('jumlah', $jumlah);
 
         if (!$result) {
             $this->failed('Gagal mengubah data barang masuk');

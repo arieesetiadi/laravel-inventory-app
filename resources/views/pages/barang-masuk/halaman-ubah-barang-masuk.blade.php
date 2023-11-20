@@ -51,6 +51,7 @@
                             {{-- INPUT JUMLAH BARANG --}}
                             <div class="mb-3">
                                 <label for="jumlah" class="form-label required">Jumlah Barang</label>
+                                <input name="jumlah_prev" type="hidden" id="jumlah_prev" value="{{ $barangMasuk->jumlah }}">
                                 <input maxlength="100" name="jumlah" type="number" class="form-control" id="jumlah"
                                     aria-describedby="jumlah" value="{{ $barangMasuk->jumlah }}" placeholder="Masukan jumlah barang masuk" required>
                             </div>
