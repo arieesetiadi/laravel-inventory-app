@@ -28,10 +28,10 @@
                                     @if (!empty($barang))
                                         <option selected disabled>Masukan nama barang</option>
                                         @foreach ($barang as $item)
-                                            @if ($item->stock > 0)
+                                            @if ($item->stokBarang && $item->stokBarang->jumlah > 0)
                                                 <option value="{{ $item->id_barang }}"
                                                     {{ $item->id_barang == $barangKeluar->id_barang ? 'selected' : '' }}>
-                                                    {{ $item->nama_barang }} (Stok tersisa {{ $item->stock }})
+                                                    {{ $item->nama_barang }} (Stok tersisa {{ $item->stokBarang->jumlah }})
                                                 </option>
                                             @else
                                                 <option disabled value="{{ $item->id_barang }}">
@@ -55,6 +55,7 @@
                             {{-- INPUT JUMLAH BARANG --}}
                             <div class="mb-3">
                                 <label for="jumlah" class="form-label required">Jumlah Barang</label>
+                                <input name="jumlah_prev" type="hidden" id="jumlah_prev" value="{{ $barangKeluar->jumlah }}">
                                 <input maxlength="100" name="jumlah" type="number" class="form-control" id="jumlah"
                                     aria-describedby="jumlah" value="{{ $barangKeluar->jumlah }}"
                                     placeholder="Masukan jumlah barang keluar" required>

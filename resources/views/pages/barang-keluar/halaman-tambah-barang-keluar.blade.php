@@ -26,9 +26,9 @@
                                     @if (!empty($barang))
                                         <option selected disabled>Masukan nama barang</option>
                                         @foreach ($barang as $item)
-                                            @if ($item->stock > 0)
+                                            @if ($item->stokBarang && $item->stokBarang->jumlah > 0)
                                                 <option value="{{ $item->id_barang }}">
-                                                    {{ $item->nama_barang }} (Stok tersisa {{ $item->stock }})
+                                                    {{ $item->nama_barang }} (Stok tersisa {{ $item->stokBarang->jumlah }})
                                                 </option>
                                             @else
                                                 <option disabled value="{{ $item->id_barang }}">
