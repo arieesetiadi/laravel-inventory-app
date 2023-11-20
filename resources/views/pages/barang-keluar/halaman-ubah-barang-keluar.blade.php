@@ -80,7 +80,11 @@
     {{-- FORM VALIDATION --}}
     <script>
         $(function() {
-            $('form#ubah-barang-keluar-form').validate();
+            $('form#ubah-barang-keluar-form').validate({
+                rules: {
+                    jumlah: 'positifdigits',
+                }
+            });
         })
     </script>
 @endpush

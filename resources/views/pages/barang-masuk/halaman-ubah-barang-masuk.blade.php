@@ -75,7 +75,11 @@
     {{-- FORM VALIDATION --}}
     <script>
         $(function() {
-            $('form#ubah-barang-masuk-form').validate();
+            $('form#ubah-barang-masuk-form').validate({
+                rules: {
+                    jumlah: 'positifdigits',
+                }
+            });
         })
     </script>
 @endpush

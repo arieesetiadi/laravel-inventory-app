@@ -1,5 +1,2 @@
-1. [ ] No negative value
-   1. [ ] Input jumlah barang masuk
-   2. [ ] Input jumlah barang keluar
-2. [ ] Urutkan input barang keluar sesuai dengan tanggak barang masuk ASC
-3. [ ] Validasi barang keluar tidak boleh melebihi stock
+1. [ ] Urutkan input barang keluar sesuai dengan tanggal barang masuk ASC
+2. [ ] Validasi barang keluar tidak boleh melebihi stock
