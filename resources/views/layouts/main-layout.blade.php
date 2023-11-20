@@ -92,6 +92,12 @@
                                 <i class="material-icons-two-tone">unarchive</i>Data Barang Keluar
                             </a>
                         </li>
+                        
+                        <li class="{{ is_url('stok-barang') || is_url('stok-barang/*') ? 'active-page' : '' }}">
+                            <a href="{{ route('halamanUtamaStokBarang') }}">
+                                <i class="material-icons-two-tone">inventory</i>Data Stok Barang
+                            </a>
+                        </li>
     
                         {{-- <li>
                             <a href="{{ route('dashboard') }}">

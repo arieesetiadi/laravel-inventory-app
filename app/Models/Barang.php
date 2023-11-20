@@ -41,6 +41,14 @@ class Barang extends Model
     }
 
     /**
+     * Relasi stok barang
+     */
+    public function stokBarang()
+    {
+        return $this->hasOne(StokBarang::class, 'id_barang');
+    }
+
+    /**
      * Perhitungan stock
      */
     public function getStockAttribute()

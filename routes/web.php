@@ -7,6 +7,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\PemasokController;
+use App\Http\Controllers\StokBarangController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -68,6 +69,16 @@ Route::middleware('auth')->group(function () {
         Route::get('/ubah/{id}', 'halamanUbahBarangKeluar')->name('halamanUbahBarangKeluar');
         Route::put('/ubah/{id}', 'prosesUbahBarangKeluar')->name('prosesUbahBarangKeluar');
         Route::get('/hapus/{id}', 'prosesHapusBarangKeluar')->name('prosesHapusBarangKeluar');
+    });
+
+    // Route Stok Barang
+    Route::prefix('/stok-barang')->controller(StokBarangController::class)->group(function () {
+        Route::get('/', 'halamanUtamaStokBarang')->name('halamanUtamaStokBarang');
+        Route::get('/tambah', 'halamanTambahStokBarang')->name('halamanTambahStokBarang');
+        Route::post('/tambah', 'prosesTambahStokBarang')->name('prosesTambahStokBarang');
+        Route::get('/ubah/{id}', 'halamanUbahStokBarang')->name('halamanUbahStokBarang');
+        Route::put('/ubah/{id}', 'prosesUbahStokBarang')->name('prosesUbahStokBarang');
+        Route::get('/hapus/{id}', 'prosesHapusStokBarang')->name('prosesHapusStokBarang');
     });
 
     // Route Logout
