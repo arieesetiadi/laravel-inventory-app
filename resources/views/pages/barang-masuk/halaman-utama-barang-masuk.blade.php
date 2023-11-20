@@ -28,6 +28,7 @@
                                     <th>No. Nota</th>
                                     <th>Nama Barang</th>
                                     <th>Jumlah</th>
+                                    <th>Satuan</th>
                                     <th>Tanggal Masuk</th>
                                     <th></th>
                                 </tr>
@@ -40,6 +41,7 @@
                                         <td>{{ $item->nomor_nota }}</td>
                                         <td>{{ $item->nama_barang }}</td>
                                         <td>{{ $item->jumlah }}</td>
+                                        <td>{{ $item->barang->satuan }}</td>
                                         <td>{{ human_date($item->tgl_masuk)}} ({{ human_datetime_diff($item->tgl_masuk) }})</td>
                                         <td class="d-flex justify-content-end gap-2">
                                             <a href="{{ route('halamanUbahBarangMasuk', $item->id_brng_masuk) }}"
@@ -100,7 +102,9 @@
                                                                         <tr>
                                                                             <td class="p-0">Jumlah</td>
                                                                             <td class="p-0">:</td>
-                                                                            <td class="p-0">{{ $item->jumlah }}</td>
+                                                                            <td class="p-0">
+                                                                                {{ $item->jumlah }} <strong>{{ $item->barang->satuan }}</strong>
+                                                                            </td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td class="p-0">Tanggal Masuk</td>

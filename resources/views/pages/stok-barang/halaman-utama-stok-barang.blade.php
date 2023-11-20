@@ -27,6 +27,7 @@
                                     <th>No.</th>
                                     <th>Nama Barang</th>
                                     <th>Jumlah Stok</th>
+                                    <th>Satuan</th>
                                     <th></th>
                                     <th></th>
                                 </tr>
@@ -37,7 +38,8 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->nama_barang }}</td>
-                                        <td>{{ $item->jumlah }} {{ $item->satuan }}</td>
+                                        <td>{{ $item->jumlah }}</td>
+                                        <td>{{ $item->barang->satuan }}</td>
                                         <td>
                                             @if ($item->jumlah <= 5)
                                                 <span class="badge rounded-pill bg-danger py-2 px-3">
@@ -100,8 +102,9 @@
                                                                         <tr>
                                                                             <td class="p-0">Jumlah Stok</td>
                                                                             <td class="p-0">:</td>
-                                                                            <td class="p-0">{{ $item->jumlah }}
-                                                                                {{ $item->satuan }}</td>
+                                                                            <td class="p-0">
+                                                                                {{ $item->jumlah }} {{ $item->barang->satuan }}
+                                                                            </td>
                                                                         </tr>
                                                                     </tbody>
                                                                 </table>
@@ -120,7 +123,7 @@
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="4">
+                                        <td colspan="5">
                                             <h6 class="text-center">
                                                 Data stok barang tidak tersedia saat ini.
                                             </h6>

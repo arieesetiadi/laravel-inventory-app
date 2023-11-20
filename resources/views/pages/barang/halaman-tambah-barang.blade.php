@@ -21,9 +21,16 @@
 
                             {{-- INPUT NAMA BARANG --}}
                             <div class="mb-3">
-                                <label for="nama_barang" class="form-label required">Nama Barang</label>
+                                <label for="nama_barang" class="form-label required">Nama</label>
                                 <input maxlength="100" name="nama_barang" type="text" class="form-control"
                                     id="nama_barang" aria-describedby="nama_barang" placeholder="Nama barang" required>
+                            </div>
+
+                            {{-- INPUT SATUAN BARANG --}}
+                            <div class="mb-3">
+                                <label for="satuan" class="form-label required">Satuan</label>
+                                <input maxlength="100" name="satuan" type="text" class="form-control"
+                                    id="satuan" aria-describedby="satuan" placeholder="Satuan barang" required>
                             </div>
 
                             {{-- INPUT NAMA PEMASOK --}}

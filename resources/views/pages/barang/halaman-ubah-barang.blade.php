@@ -29,6 +29,14 @@
                                     placeholder="Nama barang" required>
                             </div>
 
+                            {{-- INPUT SATUAN BARANG --}}
+                            <div class="mb-3">
+                                <label for="satuan" class="form-label required">Satuan</label>
+                                <input maxlength="100" name="satuan" type="text" class="form-control"
+                                    id="satuan" aria-describedby="satuan" value="{{ $barang->satuan }}"
+                                    placeholder="Nama barang" required>
+                            </div>
+
                             {{-- INPUT NAMA PEMASOK --}}
                             <div class="mb-3">
                                 <label for="pemasok" class="form-label required">Nama Pemasok</label>

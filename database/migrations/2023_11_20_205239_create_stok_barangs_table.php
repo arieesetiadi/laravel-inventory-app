@@ -17,7 +17,6 @@ class CreateStokBarangsTable extends Migration
             $table->integerIncrements('id_stok_barang');
             $table->integer('id_barang');
             $table->integer('jumlah');
-            $table->string('satuan', 100);
             $table->string('nama_barang', 100);
         });
     }

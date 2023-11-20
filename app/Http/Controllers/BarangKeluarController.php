@@ -18,7 +18,7 @@ class BarangKeluarController extends Controller
     public function halamanUtamaBarangKeluar()
     {
         // Ambil seluruh data barang keluar dari database
-        $barangKeluar = BarangKeluar::query()->with('barang')->orderBy('id_brng_keluar', 'DESC')->get();
+        $barangKeluar = BarangKeluar::query()->with('barang')->orderBy('tgl_keluar', 'DESC')->get();
 
         // Redirect ke halaman utama barang keluar
         // Beserta dengan seluruh data barang keluar yang sudah diambil diatas

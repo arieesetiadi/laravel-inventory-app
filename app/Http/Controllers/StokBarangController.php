@@ -48,7 +48,6 @@ class StokBarangController extends Controller
         $data = [
             'id_barang' => $request->input('id_barang'),
             'jumlah' => $request->input('jumlah'),
-            'satuan' => $request->input('satuan'),
             'nama_barang' => Barang::query()->find($request->id_barang)->nama_barang,
         ];
 
@@ -95,7 +94,6 @@ class StokBarangController extends Controller
         $data = [
             'id_barang' => $request->input('id_barang'),
             'jumlah' => $request->input('jumlah'),
-            'satuan' => $request->input('satuan'),
             'nama_barang' => Barang::query()->find($request->id_barang)->nama_barang,
         ];
 

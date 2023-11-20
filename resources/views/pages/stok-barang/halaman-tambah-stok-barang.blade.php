@@ -37,13 +37,6 @@
                                     aria-describedby="jumlah" placeholder="Masukan jumlah stok barang" required>
                             </div>
 
-                            {{-- INPUT SATUAN BARANG --}}
-                            <div class="mb-3">
-                                <label for="satuan" class="form-label required">Satuan Barang</label>
-                                <input maxlength="100" name="satuan" type="text" class="form-control" id="satuan"
-                                    aria-describedby="satuan" placeholder="Masukan satuan barang" required>
-                            </div>
-
                             <div class="d-flex mt-4 gap-2">
                                 <a type="button" class="btn btn-light" href="{{ route('halamanUtamaStokBarang') }}">
                                     Kembali

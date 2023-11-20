@@ -27,6 +27,7 @@
                                     <th>No.</th>
                                     <th>Nama Barang</th>
                                     <th>Jumlah</th>
+                                    <th>Satuan</th>
                                     <th>Tanggal Keluar</th>
                                     <th></th>
                                 </tr>
@@ -38,6 +39,7 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->nama_barang }}</td>
                                         <td>{{ $item->jumlah }}</td>
+                                        <td>{{ $item->barang->satuan }}</td>
                                         <td>{{ human_date($item->tgl_keluar)}} ({{ human_datetime_diff($item->tgl_keluar) }})</td>
                                         <td class="d-flex justify-content-end gap-2">
                                             <a href="{{ route('halamanUbahBarangKeluar', $item->id_brng_keluar) }}"
@@ -93,7 +95,9 @@
                                                                         <tr>
                                                                             <td class="p-0">Jumlah</td>
                                                                             <td class="p-0">:</td>
-                                                                            <td class="p-0">{{ $item->jumlah }}</td>
+                                                                            <td class="p-0">
+                                                                                {{ $item->jumlah }} {{ $item->barang->satuan }}
+                                                                            </td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td class="p-0">Tanggal Keluar</td>

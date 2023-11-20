@@ -47,6 +47,7 @@ class BarangController extends Controller
         // Ambil data dari form tambah barang
         $data = [
             'nama_barang' => $request->input('nama_barang'),
+            'satuan' => $request->input('satuan'),
             'id_pemasok' => $request->input('id_pemasok'),
         ];
 
@@ -87,6 +88,7 @@ class BarangController extends Controller
         // Ambil data dari form ubah barang
         $data = [
             'nama_barang' => $request->input('nama_barang'),
+            'satuan' => $request->input('satuan'),
             'id_pemasok' => $request->input('id_pemasok'),
         ];
 

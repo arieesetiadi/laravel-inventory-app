@@ -17,6 +17,7 @@ class BarangSeeder extends Seeder
         foreach (range(1, 20) as $i) {
             Barang::query()->create([
                 'nama_barang' => 'Barang ' . $i,
+                'satuan' => 'Pcs',
                 'id_pemasok' => rand(1, 15),
             ]);
         }
