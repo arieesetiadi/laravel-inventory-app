@@ -157,12 +157,13 @@
     <script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/perfectscroll/perfect-scrollbar.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/pace/pace.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/apexcharts/apexcharts.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/datatables/datatables.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/select2/js/select2.min.js') }}"></script>
     <script src="{{ asset('assets/js/main.min.js') }}"></script>
     <script src="{{ asset('assets/js/pages/datatables.js') }}"></script>
     <script src="{{ asset('assets/js/pages/select2.js') }}"></script>
-    {{-- <script src="{{ asset('assets/js/pages/dashboard.js') }}"></script> --}}
+    <script src="{{ asset('assets/js/pages/dashboard.js') }}"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js"
         integrity="sha512-WMEKGZ7L5LWgaPeJtw9MBM4i5w5OSBlSjTjCtSnvFJGSVD26gE5+Td12qN5pvWXhuWaWcVwF++F7aqu9cvqP0A=="

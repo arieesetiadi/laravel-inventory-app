@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BarangKeluar;
+use App\Models\BarangMasuk;
+use App\Models\StokBarang;
+use Carbon\CarbonPeriod;
+
 class DashboardController extends Controller
 {
     /**
@@ -9,6 +14,45 @@ class DashboardController extends Controller
      */
     public function dashboard()
     {
-        return view('pages.dashboard');
+        // Hitung jumlah data untuk kebutuhan dashboard
+        $jumlah['perlu_dipesan'] = StokBarang::query()->where('jumlah', '<=', 5)->count();
+        $jumlah['barang_masuk'] = BarangMasuk::count();
+        $jumlah['barang_keluar'] = BarangKeluar::count();
+
+        $chart = $this->getChartData();
+
+        return view('pages.dashboard')->with([
+            'jumlah' => $jumlah,
+            'chart' => $chart,
+        ]);
+    }
+
+
+    /**
+     * Ambil data untuk kebutuhan grafik dashboard. 
+     */
+    public function getChartData()
+    {
+        $periods = CarbonPeriod::create(now()->subDays(6), now());
+
+        foreach ($periods as $date) {
+            $categories[] = $date->format('d M');
+            $jumlahbarangMasuk[] = BarangMasuk::query()->whereDate('tgl_masuk', $date)->sum('jumlah');
+            $jumlahbarangKeluar[] = BarangKeluar::query()->whereDate('tgl_keluar', $date)->sum('jumlah');
+        }
+
+        $result['categories'] = $categories;
+        $result['series'] = [
+            [
+                'name' => 'Barang Masuk',
+                'data' => $jumlahbarangMasuk,
+            ],
+            [
+                'name' => 'Barang Keluar',
+                'data' => $jumlahbarangKeluar,
+            ],
+        ];
+
+        return $result;
     }
 }
