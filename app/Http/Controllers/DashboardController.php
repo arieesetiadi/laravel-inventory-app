@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Barang;
 use App\Models\BarangKeluar;
 use App\Models\BarangMasuk;
 use App\Models\StokBarang;
@@ -16,14 +17,19 @@ class DashboardController extends Controller
     {
         // Hitung jumlah data untuk kebutuhan dashboard
         $jumlah['perlu_dipesan'] = StokBarang::query()->where('jumlah', '<=', 5)->count();
+        $jumlah['stok_barang'] = StokBarang::count();
+        $jumlah['barang'] = Barang::count();
         $jumlah['barang_masuk'] = BarangMasuk::count();
         $jumlah['barang_keluar'] = BarangKeluar::count();
 
         $chart = $this->getChartData();
 
+        $stokBarang = StokBarang::query()->with('barang')->orderBy('id_stok_barang', 'DESC')->get();
+
         return view('pages.dashboard')->with([
             'jumlah' => $jumlah,
             'chart' => $chart,
+            'stokBarang' => $stokBarang,
         ]);
     }
 

@@ -123,7 +123,7 @@
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="5">
+                                        <td colspan="6">
                                             <h6 class="text-center">
                                                 Data stok barang tidak tersedia saat ini.
                                             </h6>
