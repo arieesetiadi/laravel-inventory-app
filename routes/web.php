@@ -85,10 +85,21 @@ Route::middleware('auth')->group(function () {
     // Route Laporan
     Route::prefix('/laporan')->controller(LaporanController::class)->group(function () {
         Route::get('/', 'halamanUtamaLaporan')->name('halamanUtamaLaporan');
+
         Route::get('/preview/barang-masuk', 'previewBarangMasuk')->name('previewBarangMasuk');
         Route::get('/cetak/barang-masuk', 'cetakBarangMasuk')->name('cetakBarangMasuk');
+
         Route::get('/preview/barang-keluar', 'previewBarangKeluar')->name('previewBarangKeluar');
         Route::get('/cetak/barang-keluar', 'cetakBarangKeluar')->name('cetakBarangKeluar');
+
+        Route::get('/preview/barang', 'previewBarang')->name('previewBarang');
+        Route::get('/cetak/barang', 'cetakBarang')->name('cetakBarang');
+
+        Route::get('/preview/pemasok', 'previewPemasok')->name('previewPemasok');
+        Route::get('/cetak/pemasok', 'cetakPemasok')->name('cetakPemasok');
+
+        Route::get('/preview/stokBarang', 'previewStokBarang')->name('previewStokBarang');
+        Route::get('/cetak/stokBarang', 'cetakStokBarang')->name('cetakStokBarang');
     });
 
     // Route Logout
