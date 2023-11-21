@@ -86,24 +86,26 @@
                                 <i class="material-icons-two-tone">archive</i>Data Barang Masuk
                             </a>
                         </li>
-                        
+
                         <li class="{{ is_url('barang-keluar') || is_url('barang-keluar/*') ? 'active-page' : '' }}">
                             <a href="{{ route('halamanUtamaBarangKeluar') }}">
                                 <i class="material-icons-two-tone">unarchive</i>Data Barang Keluar
                             </a>
                         </li>
-                        
+
                         <li class="{{ is_url('stok-barang') || is_url('stok-barang/*') ? 'active-page' : '' }}">
                             <a href="{{ route('halamanUtamaStokBarang') }}">
                                 <i class="material-icons-two-tone">inventory</i>Data Stok Barang
                             </a>
                         </li>
-    
-                        {{-- <li>
-                            <a href="{{ route('dashboard') }}">
+                    @endif
+
+                    @if (!is_petugas_gudang())
+                        <li class="{{ is_url('laporan') || is_url('laporan/*') ? 'active-page' : '' }}">
+                            <a href="{{ route('halamanUtamaLaporan') }}">
                                 <i class="material-icons-two-tone">description</i>Laporan
                             </a>
-                        </li> --}}
+                        </li>
                     @endif
 
                     {{-- <li>

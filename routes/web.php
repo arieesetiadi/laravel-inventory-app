@@ -4,6 +4,7 @@ use App\Http\Controllers\BarangController;
 use App\Http\Controllers\BarangKeluarController;
 use App\Http\Controllers\BarangMasukController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\PemasokController;
@@ -79,6 +80,13 @@ Route::middleware('auth')->group(function () {
         Route::get('/ubah/{id}', 'halamanUbahStokBarang')->name('halamanUbahStokBarang');
         Route::put('/ubah/{id}', 'prosesUbahStokBarang')->name('prosesUbahStokBarang');
         Route::get('/hapus/{id}', 'prosesHapusStokBarang')->name('prosesHapusStokBarang');
+    });
+
+    // Route Laporan
+    Route::prefix('/laporan')->controller(LaporanController::class)->group(function () {
+        Route::get('/', 'halamanUtamaLaporan')->name('halamanUtamaLaporan');
+        Route::get('/preview/barang-masuk', 'previewBarangMasuk')->name('previewBarangMasuk');
+        Route::get('/cetak/barang-masuk', 'cetakBarangMasuk')->name('cetakBarangMasuk');
     });
 
     // Route Logout
