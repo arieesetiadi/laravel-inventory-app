@@ -8,10 +8,13 @@
                     <div class="page-description-content flex-grow-1">
                         <h1>Barang</h1>
                     </div>
-                    <div class="page-description-actions">
-                        <a href="{{ route('halamanTambahBarang') }}" class="btn btn-primary"><i
-                                class="material-icons">add</i>Tambah Barang</a>
-                    </div>
+                    
+                    @if (is_admin())
+                        <div class="page-description-actions">
+                            <a href="{{ route('halamanTambahBarang') }}" class="btn btn-primary"><i
+                                    class="material-icons">add</i>Tambah Barang</a>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>
@@ -26,7 +29,10 @@
                                     <th>No.</th>
                                     <th>Nama Barang</th>
                                     <th>Satuan</th>
-                                    <th></th>
+
+                                    @if (is_admin())
+                                        <th></th>
+                                    @endif
                                 </tr>
                             </thead>
 
@@ -36,84 +42,87 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->nama_barang }}</td>
                                         <td>{{ $item->satuan }}</td>
-                                        <td class="d-flex justify-content-end gap-2">
-                                            <a href="{{ route('halamanUbahBarang', $item->id_barang) }}"
-                                                class="btn btn-sm btn-light">
-                                                Ubah
-                                            </a>
 
-                                            <a href="javascript:void(0);" class="btn btn-sm btn-light" role="button"
-                                                data-bs-toggle="modal"
-                                                data-bs-target="#detail-barang-modal-{{ $item->id_barang }}">
-                                                Detail
-                                            </a>
+                                        @if (is_admin())
+                                            <td class="d-flex justify-content-end gap-2">
+                                                <a href="{{ route('halamanUbahBarang', $item->id_barang) }}"
+                                                    class="btn btn-sm btn-light">
+                                                    Ubah
+                                                </a>
 
-                                            <a onclick="swalConfirm(event)" data-type="link"
-                                                href="{{ route('prosesHapusBarang', $item->id_barang) }}"
-                                                class="btn btn-sm btn-danger">
-                                                Hapus
-                                            </a>
+                                                <a href="javascript:void(0);" class="btn btn-sm btn-light" role="button"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#detail-barang-modal-{{ $item->id_barang }}">
+                                                    Detail
+                                                </a>
 
-                                            @push('scripts')
-                                                <div class="modal fade" id="detail-barang-modal-{{ $item->id_barang }}"
-                                                    tabindex="-1"
-                                                    aria-labelledby="detail-barang-modal-{{ $item->id_barang }}-label"
-                                                    aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-centered">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title"
-                                                                    id="detail-barang-modal-{{ $item->id_barang }}-label">
-                                                                    Detail "{{ $item->nama_barang }}"
-                                                                </h5>
-                                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                                    aria-label="Close"></button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <table class="table">
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td>Nama Barang</td>
-                                                                            <td>:</td>
-                                                                            <td>{{ $item->nama_barang }}</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>Satuan Barang</td>
-                                                                            <td>:</td>
-                                                                            <td>{{ $item->satuan }}</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>Pemasok</td>
-                                                                            <td>:</td>
-                                                                            <td>
-                                                                                <ul class="px-0 mb-0"
-                                                                                    style="list-style-type: none">
-                                                                                    <li>
-                                                                                        <strong>{{ $item->pemasok->nama_pemasok }}</strong>
-                                                                                    </li>
-                                                                                    <li>
-                                                                                        {{ $item->pemasok->alamat }}
-                                                                                    </li>
-                                                                                    <li>
-                                                                                        {{ $item->pemasok->telp }}
-                                                                                    </li>
-                                                                                </ul>
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-dark"
-                                                                    data-bs-dismiss="modal">
-                                                                    Tutup
-                                                                </button>
+                                                <a onclick="swalConfirm(event)" data-type="link"
+                                                    href="{{ route('prosesHapusBarang', $item->id_barang) }}"
+                                                    class="btn btn-sm btn-danger">
+                                                    Hapus
+                                                </a>
+
+                                                @push('scripts')
+                                                    <div class="modal fade" id="detail-barang-modal-{{ $item->id_barang }}"
+                                                        tabindex="-1"
+                                                        aria-labelledby="detail-barang-modal-{{ $item->id_barang }}-label"
+                                                        aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title"
+                                                                        id="detail-barang-modal-{{ $item->id_barang }}-label">
+                                                                        Detail "{{ $item->nama_barang }}"
+                                                                    </h5>
+                                                                    <button type="button" class="btn-close"
+                                                                        data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <table class="table">
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td>Nama Barang</td>
+                                                                                <td>:</td>
+                                                                                <td>{{ $item->nama_barang }}</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>Satuan Barang</td>
+                                                                                <td>:</td>
+                                                                                <td>{{ $item->satuan }}</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>Pemasok</td>
+                                                                                <td>:</td>
+                                                                                <td>
+                                                                                    <ul class="mb-0 px-0"
+                                                                                        style="list-style-type: none">
+                                                                                        <li>
+                                                                                            <strong>{{ $item->pemasok->nama_pemasok }}</strong>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            {{ $item->pemasok->alamat }}
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            {{ $item->pemasok->telp }}
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-dark"
+                                                                        data-bs-dismiss="modal">
+                                                                        Tutup
+                                                                    </button>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            @endpush
-                                        </td>
+                                                @endpush
+                                            </td>
+                                        @endif
                                     </tr>
                                 @empty
                                     <tr>
