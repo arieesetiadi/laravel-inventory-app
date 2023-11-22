@@ -27,7 +27,8 @@
                                         <option selected disabled>Masukan nama barang</option>
                                         @foreach ($barang as $item)
                                             @if ($item->stokBarang && $item->stokBarang->jumlah > 0)
-                                                <option value="{{ $item->id_barang }}">
+                                                <option data-stok="{{ $item->stokBarang->jumlah }}"
+                                                    value="{{ $item->id_barang }}">
                                                     {{ $item->nama_barang }} (Stok tersisa {{ $item->stokBarang->jumlah }})
                                                 </option>
                                             @else
@@ -75,12 +76,33 @@
 @push('scripts')
     {{-- FORM VALIDATION --}}
     <script>
+        let batasStok = 0;
+
+        // Add a custom validation method
+        $.validator.addMethod("stocklimit", function(value, element) {
+            if (batasStok > 0) {
+                var inputValue = parseFloat(value);
+                var maxValue = parseFloat(batasStok);
+                return isNaN(inputValue) || inputValue <= maxValue;
+            }
+
+            return true;
+        }, "Jumlah barang tidak boleh melebihi stok yang tersedia.");
+
         $(function() {
             $('form#tambah-barang-keluar-form').validate({
                 rules: {
-                    jumlah: 'positifdigits',
+                    jumlah: {
+                        positifdigits: true,
+                        stocklimit: true
+                    },
                 }
             });
         })
+
+        $('select#id_barang').on('change', function() {
+            const selected = $(this).find(':selected');
+            batasStok = selected.data('stok');
+        });
     </script>
 @endpush
