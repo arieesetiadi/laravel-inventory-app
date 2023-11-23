@@ -120,7 +120,11 @@ class BarangController extends Controller
     public function prosesHapusBarang($idBarang)
     {
         // Hapus dari database barang berdasarkan id
-        Barang::query()->find($idBarang)->delete();
+        $barang = Barang::query()->find($idBarang);
+        $barang->stokBarang()->delete();
+        $barang->masuk()->delete();
+        $barang->keluar()->delete();
+        $barang->delete();
 
         // Redirect ke halaman utama barang setelah proses hapus
         return $this->success('Berhasil menghapus data barang', route('halamanUtamaBarang'));
