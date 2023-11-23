@@ -55,7 +55,7 @@ class BarangController extends Controller
         // Insert data tersebut ke database
         $result = Barang::query()->create($data);
 
-        // Siapkah data stok berjumlah 0 by default untuk barang yang baru ditambah
+        // Siapkan data stok berjumlah 0 by default untuk barang yang baru ditambah
         StokBarang::create([
             'id_barang' => $result->id_barang,
             'jumlah' => 0,
