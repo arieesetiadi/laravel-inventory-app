@@ -42,13 +42,13 @@
                 </a>
 
                 <div class="sidebar-user-switcher user-activity-online">
-                    <div>
+                    <a href="{{ route('profile') }}">
                         <img src="{{ asset('assets/images/avatars/user.png') }}">
                         <span class="activity-indicator"></span>
                         <span class="user-info-text">{{ auth()->user()->nama_user }}<br>
                             <span class="user-state-info">{{ auth()->user()->role }}</span>
                         </span>
-                    </div>
+                    </a>
                 </div>
             </div>
             <div class="app-menu">

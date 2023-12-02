@@ -8,6 +8,7 @@ use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\PemasokController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StokBarangController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,6 +32,10 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     // Route Dashboard
     Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
+
+    // Route Profile
+    Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');
+    Route::put('/profile', [ProfileController::class, 'prosesUbahProfile'])->name('prosesUbahProfile');
 
     // Route Pemasok
     Route::prefix('/pemasok')->controller(PemasokController::class)->group(function () {
