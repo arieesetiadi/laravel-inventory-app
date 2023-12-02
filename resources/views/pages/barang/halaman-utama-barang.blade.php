@@ -8,7 +8,7 @@
                     <div class="page-description-content flex-grow-1">
                         <h1>Barang</h1>
                     </div>
-                    
+
                     @if (is_admin())
                         <div class="page-description-actions">
                             <a href="{{ route('halamanTambahBarang') }}" class="btn btn-primary"><i
@@ -94,18 +94,22 @@
                                                                                 <td>Pemasok</td>
                                                                                 <td>:</td>
                                                                                 <td>
-                                                                                    <ul class="mb-0 px-0"
-                                                                                        style="list-style-type: none">
-                                                                                        <li>
-                                                                                            <strong>{{ $item->pemasok->nama_pemasok }}</strong>
-                                                                                        </li>
-                                                                                        <li>
-                                                                                            {{ $item->pemasok->alamat }}
-                                                                                        </li>
-                                                                                        <li>
-                                                                                            {{ $item->pemasok->telp }}
-                                                                                        </li>
-                                                                                    </ul>
+                                                                                    @if (!empty($item->pemasok))
+                                                                                        <ul class="mb-0 px-0"
+                                                                                            style="list-style-type: none">
+                                                                                            <li>
+                                                                                                <strong>{{ $item->pemasok->nama_pemasok }}</strong>
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                {{ $item->pemasok->alamat }}
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                {{ $item->pemasok->telp }}
+                                                                                            </li>
+                                                                                        </ul>
+                                                                                    @else
+                                                                                        <strong>-</strong>
+                                                                                    @endif
                                                                                 </td>
                                                                             </tr>
                                                                         </tbody>

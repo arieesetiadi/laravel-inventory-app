@@ -100,10 +100,13 @@
                                                                                         <li>
                                                                                             <strong>{{ $item->barang->nama_barang }}</strong>
                                                                                         </li>
-                                                                                        <li>
-                                                                                            Dipasok oleh
-                                                                                            <strong>{{ $item->barang->pemasok->nama_pemasok }}</strong>
-                                                                                        </li>
+
+                                                                                        @if (!empty($item->barang->pemasok))
+                                                                                            <li>
+                                                                                                Dipasok oleh
+                                                                                                <strong>{{ $item->barang->pemasok->nama_pemasok }}</strong>
+                                                                                            </li>
+                                                                                        @endif
                                                                                     </ul>
                                                                                 </td>
                                                                             </tr>

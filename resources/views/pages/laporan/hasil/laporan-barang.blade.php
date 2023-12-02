@@ -47,7 +47,7 @@
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $item->nama_barang }}</td>
                     <td>{{ $item->satuan }}</td>
-                    <td>{{ $item->pemasok->nama_pemasok }}</td>
+                    <td>{{ $item->pemasok->nama_pemasok ?? '-' }}</td>
                 </tr>
             @empty
                 <tr>

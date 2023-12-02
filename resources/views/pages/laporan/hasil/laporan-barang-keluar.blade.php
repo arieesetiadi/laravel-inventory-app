@@ -55,7 +55,7 @@
                     <td>{{ $item->barang->nama_barang }}</td>
                     <td>{{ $item->jumlah }}</td>
                     <td>{{ $item->barang->satuan }}</td>
-                    <td>{{ $item->barang->pemasok->nama_pemasok }}</td>
+                    <td>{{ $item->barang->pemasok->nama_pemasok ?? '-' }}</td>
                     <td>
                         {{ now()->make($item->tgl_keluar)->format('d M Y') }}
                     </td>

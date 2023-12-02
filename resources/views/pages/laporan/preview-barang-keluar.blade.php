@@ -53,7 +53,7 @@
                                         <td>{{ $item->barang->nama_barang }}</td>
                                         <td>{{ $item->jumlah }}</td>
                                         <td>{{ $item->barang->satuan }}</td>
-                                        <td>{{ $item->barang->pemasok->nama_pemasok }}</td>
+                                        <td>{{ $item->barang->pemasok->nama_pemasok ?? '' }}</td>
                                         <td>
                                             {{ human_date($item->tgl_keluar) }} ({{ human_datetime_diff($item->tgl_keluar) }})
                                         </td>
