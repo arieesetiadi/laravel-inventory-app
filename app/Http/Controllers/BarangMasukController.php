@@ -18,7 +18,10 @@ class BarangMasukController extends Controller
     public function halamanUtamaBarangMasuk()
     {
         // Ambil seluruh data barang masuk dari database
-        $barangMasuk = BarangMasuk::query()->with('barang')->orderBy('id_brng_masuk', 'DESC')->get();
+        $barangMasuk = BarangMasuk::query()
+            ->with('barang')
+            ->orderBy('tgl_masuk')
+            ->get();
 
         // Redirect ke halaman utama barang masuk
         // Beserta dengan seluruh data barang masuk yang sudah diambil diatas

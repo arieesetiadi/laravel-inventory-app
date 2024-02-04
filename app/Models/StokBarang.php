@@ -12,7 +12,7 @@ class StokBarang extends Model
     public $table = 'stok_barang';
     public $primaryKey = 'id_stok_barang';
     public $timestamps = false;
-    public $appends = ['stock'];
+    public $appends = ['stock', 'age'];
 
     protected $guarded = [];
 
@@ -22,5 +22,10 @@ class StokBarang extends Model
     public function barang()
     {
         return $this->belongsTo(Barang::class, 'id_barang');
+    }
+
+    public function getAgeAttribute(): int
+    {
+        return 0;
     }
 }
