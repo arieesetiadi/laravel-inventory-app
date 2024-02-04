@@ -58,4 +58,12 @@ class Barang extends Model
 
         return $jumlahMasuk - $jumlahKeluar;
     }
+
+    public static function generateKodeBarang(): string
+    {
+        $currentOrder = self::max('id_barang') + 1;
+        $kodeBarang = 'BRG-' . str_pad($currentOrder, 5, '0', STR_PAD_LEFT);
+
+        return $kodeBarang;
+    }
 }

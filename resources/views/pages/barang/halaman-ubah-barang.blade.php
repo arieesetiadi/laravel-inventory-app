@@ -21,6 +21,14 @@
                             @csrf
                             @method('PUT')
 
+                            {{-- INPUT KODE BARANG --}}
+                            <div class="mb-3">
+                                <label for="kode_barang" class="form-label required">Kode Barang</label>
+                                <input maxlength="100" name="kode_barang" type="text" class="form-control"
+                                    id="kode_barang" aria-describedby="kode_barang" value="{{ $barang->kode_barang }}" placeholder="Kode barang" readonly required>
+                            </div>
+
+
                             {{-- INPUT NAMA BARANG --}}
                             <div class="mb-3">
                                 <label for="nama_barang" class="form-label required">Nama</label>

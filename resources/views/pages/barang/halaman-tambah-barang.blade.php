@@ -19,6 +19,13 @@
                         <form id="tambah-barang-form" action="{{ route('prosesTambahBarang') }}" method="POST">
                             @csrf
 
+                            {{-- INPUT KODE BARANG --}}
+                            <div class="mb-3">
+                                <label for="kode_barang" class="form-label required">Kode Barang (Auto Generated)</label>
+                                <input maxlength="100" name="kode_barang" type="text" class="form-control"
+                                    id="kode_barang" aria-describedby="kode_barang" value="{{ $kodeBarang }}" placeholder="Kode barang" readonly required>
+                            </div>
+
                             {{-- INPUT NAMA BARANG --}}
                             <div class="mb-3">
                                 <label for="nama_barang" class="form-label required">Nama</label>

@@ -29,7 +29,7 @@
                                             @if ($item->stokBarang && $item->stokBarang->jumlah > 0)
                                                 <option data-stok="{{ $item->stokBarang->jumlah }}"
                                                     value="{{ $item->id_barang }}">
-                                                    {{ $item->nama_barang }} (Stok tersisa {{ $item->stokBarang->jumlah }})
+                                                    {{ $item->nama_barang }} - sisa {{ $item->stokBarang->jumlah }} - ditambah 1 hari yang lalu
                                                 </option>
                                             @else
                                                 <option disabled value="{{ $item->id_barang }}">

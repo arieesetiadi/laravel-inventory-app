@@ -55,6 +55,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/ubah/{id}', 'halamanUbahBarang')->name('halamanUbahBarang');
         Route::put('/ubah/{id}', 'prosesUbahBarang')->name('prosesUbahBarang');
         Route::get('/hapus/{id}', 'prosesHapusBarang')->name('prosesHapusBarang');
+        Route::get('/generate-kode-barang', 'generateKodeBarang')->name('generateKodeBarang');
     });
 
     // Route Barang Masuk

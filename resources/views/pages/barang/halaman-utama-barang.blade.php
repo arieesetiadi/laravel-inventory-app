@@ -27,6 +27,7 @@
                             <thead>
                                 <tr>
                                     <th>No.</th>
+                                    <th>Kode Barang</th>
                                     <th>Nama Barang</th>
                                     <th>Satuan</th>
 
@@ -40,6 +41,7 @@
                                 @forelse ($barang as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $item->kode_barang }}</td>
                                         <td>{{ $item->nama_barang }}</td>
                                         <td>{{ $item->satuan }}</td>
 

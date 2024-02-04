@@ -34,9 +34,11 @@ class BarangController extends Controller
     {
         // Ambil data pemasok sebagai pilihan di form
         $pemasok = Pemasok::all();
+        $kodeBarang = Barang::generateKodeBarang();
 
         return view('pages.barang.halaman-tambah-barang')->with([
             'pemasok' => $pemasok,
+            'kodeBarang' => $kodeBarang,
         ]);
     }
 
@@ -47,6 +49,7 @@ class BarangController extends Controller
     {
         // Ambil data dari form tambah barang
         $data = [
+            'kode_barang' => $request->input('kode_barang'),
             'nama_barang' => $request->input('nama_barang'),
             'satuan' => $request->input('satuan'),
             'id_pemasok' => $request->input('id_pemasok'),
@@ -128,5 +131,15 @@ class BarangController extends Controller
 
         // Redirect ke halaman utama barang setelah proses hapus
         return $this->success('Berhasil menghapus data barang', route('halamanUtamaBarang'));
+    }
+
+    public function generateKodeBarang()
+    {
+        foreach (Barang::all() as $barang) {
+            $barang->kode_barang = 'BRG-' . str_pad($barang->id_barang, 5, '0', STR_PAD_LEFT);
+            $barang->save();
+        }
+
+        return redirect()->route('halamanUtamaBarang');
     }
 }
