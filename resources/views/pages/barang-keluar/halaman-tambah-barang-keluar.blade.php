@@ -23,17 +23,19 @@
                             <div class="mb-3">
                                 <label for="id_barang" class="form-label required">Nama Barang</label>
                                 <select required id="id_barang" name="id_barang" class="form-select select2">
-                                    @if (!empty($barang))
+                                    @if (!empty($barangMasuk))
                                         <option selected disabled>Masukan nama barang</option>
-                                        @foreach ($barang as $item)
-                                            @if ($item->stokBarang && $item->stokBarang->jumlah > 0)
-                                                <option data-stok="{{ $item->stokBarang->jumlah }}"
-                                                    value="{{ $item->id_barang }}">
-                                                    {{ $item->nama_barang }} - sisa {{ $item->stokBarang->jumlah }} - ditambah 1 hari yang lalu
+                                        @foreach ($barangMasuk as $item)
+                                            @if ($item->barang->stokBarang && $item->barang->stokBarang->jumlah > 0)
+                                                <option data-stok="{{ $item->jumlah }}"
+                                                    value="{{ $item->barang->id_barang }}">
+                                                    {{ $item->barang->nama_barang }} - 
+                                                    Stok {{ $item->jumlah }} - 
+                                                    Masuk pada {{ now()->make($item->tgl_masuk)->diffForHumans() }}
                                                 </option>
                                             @else
-                                                <option disabled value="{{ $item->id_barang }}">
-                                                    {{ $item->nama_barang }} (Stok kosong)
+                                                <option disabled value="{{ $item->barang->id_barang }}">
+                                                    {{ $item->barang->nama_barang }} (Stok kosong)
                                                 </option>
                                             @endif
                                         @endforeach

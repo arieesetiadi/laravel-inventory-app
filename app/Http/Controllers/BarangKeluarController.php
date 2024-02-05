@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Barang;
 use App\Models\BarangKeluar;
+use App\Models\BarangMasuk;
 use App\Models\StokBarang;
 use App\Traits\HasWebResponses;
 use Illuminate\Http\Request;
@@ -33,10 +34,14 @@ class BarangKeluarController extends Controller
     public function halamanTambahBarangKeluar()
     {
         // Ambil data barang sebagai pilihan di form
-        $barang = Barang::all();
+        $barangMasuk = BarangMasuk
+            ::with('barang')
+            ->has('barang')
+            ->oldest('tgl_masuk')
+            ->get();
 
         return view('pages.barang-keluar.halaman-tambah-barang-keluar')->with([
-            'barang' => $barang,
+            'barangMasuk' => $barangMasuk,
         ]);
     }
 
@@ -76,12 +81,16 @@ class BarangKeluarController extends Controller
         $barangKeluar = BarangKeluar::query()->findOrFail($idBarangKeluar);
 
         // Ambil data barang sebagai pilihan di form
-        $barang = Barang::all();
+        $barangMasuk = BarangMasuk
+            ::with('barang')
+            ->has('barang')
+            ->oldest('tgl_masuk')
+            ->get();
 
         // Redirect ke halaman ubah barang keluar beserta data barang keluar yang ingin diubah
         return view('pages.barang-keluar.halaman-ubah-barang-keluar')->with([
             'barangKeluar' => $barangKeluar,
-            'barang' => $barang
+            'barangMasuk' => $barangMasuk
         ]);
     }
 
